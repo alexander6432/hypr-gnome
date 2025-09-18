@@ -1,0 +1,263 @@
+@import url("file:///home/alex/.cache/dotfiles/colors-waybar.css");
+
+* {
+  font-family: JetBrainsMonoNL Nerd Font;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+
+window#waybar {
+  background-color: transparent;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* window#waybar.empty #window { */
+/*   background-color: transparent; */
+/*   border-radius: 10px; */
+/*   border: none; */
+/* } */
+/**/
+/* window#waybar.solo { */
+/*   background-color: alpha(@primary, 0.25); */
+/*   border-radius: 10px; */
+/*   border: none; */
+/* } */
+/**/
+/* window#waybar.google-chrome { */
+/*   background-color: alpha(@background, 0.25); */
+/*   border-radius: 10px; */
+/*   border: none; */
+/* } */
+/**/
+button {
+  box-shadow: inset 0 -4px transparent;
+  border: none;
+  border-radius: 10px;
+}
+
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -4px @primary;
+}
+
+#custom-wofi {
+  background-color: @background;
+  color: @primary;
+  font-size: 16px;
+  padding: 0 12px 0 8px;
+  border-radius: 10px;
+}
+
+#custom-wofi:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -3px @primary;
+}
+
+#window {
+  background-color: @background;
+  border-radius: 10px;
+  color: @primary;
+  font-size: 12px;
+  padding: 0 12px 0 8px;
+  margin: 0 4px;
+}
+
+#submap {
+  color: @primary-container;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+#idle_inhibitor.deactivated {
+  color: @primary;
+  background-color: @background;
+  padding: 0 12px 0 8px;
+  border-radius: 10px;
+}
+
+#idle_inhibitor.activated {
+  color: @primary;
+  background-color: @on-primary;
+  padding: 0 12px 0 8px;
+  border-radius: 10px;
+}
+
+#idle_inhibitor:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+  border: none;
+}
+
+#workspaces {
+  border-radius: 10px;
+  background-color: @background;
+  margin: 0 2px;
+  padding: 0 8px;
+}
+
+#workspaces button {
+  font-size: 20px;
+  color: @primary;
+  padding: 0 6px;
+  border-radius: 10px;
+}
+
+#workspaces button.empty {
+  color: @outline-variant;
+}
+
+#workspaces button.special {
+  color: @primary-hue180;
+}
+
+#workspaces button.active {
+  color: @primary-hue40;
+}
+
+#workspaces button.focused {
+  color: @error-container;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+  color: @error;
+}
+
+#tray {
+  background-color: @background;
+  border-radius: 10px;
+  padding: 0 4px;
+}
+
+#tray > .active {
+  -gtk-icon-effect: dim;
+}
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @error;
+}
+
+#custom-swaync {
+  background-color: @background;
+  color: @primary;
+  padding: 0 12px 0 10px;
+  border-radius: 10px;
+}
+
+#custom-swaync:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+  border: none;
+}
+
+#pulseaudio {
+  font-size: 12px;
+  color: @primary;
+  border-radius: 10px;
+  background-color: @background;
+  padding: 0 10px 0 8px;
+}
+
+#pulseaudio.source-muted,
+#pulseaudio.muted {
+    color: @outline-variant;
+}
+
+#pulseaudio:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+  border: none;
+}
+
+#backlight {
+  font-size: 12px;
+  background-color: @background;
+  color: @primary;
+  border-radius: 10px;
+  padding: 0 10px 0 8px;
+  margin: 0 4px;
+}
+
+#backlight:hover {
+  font-size: 12px;
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+  border: none;
+}
+
+#battery {
+  background-color: @background;
+  color: @primary;
+  border-radius: 10px;
+  padding: 0 10px 0 8px;
+}
+
+#battery.charging, #battery.plugged {
+    color: @primary;
+    background-color: @on-primary;
+}
+
+#battery.regular {
+  color: @primary-hue40;
+}
+
+#battery.warning {
+  color: @primary-hue180;
+}
+
+@keyframes blink {
+    to {
+        background-color: @error-container;
+        color: @error;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: @background;
+    color: @primary;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-clock {
+  padding: 0 4px 0 8px;
+}
+
+#clock {
+  color: @primary;
+  border-radius: 10px;
+  padding: 0 12px 0 10px;
+}
+
+#clock:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -3px @primary;
+}
+
+#clocky {
+  font-size: 12px;
+  background-color: @background;
+  color: @primary;
+  border-radius: 10px;
+}

@@ -1,0 +1,27 @@
+
+/*=== === === DARK === === ===*/
+/*  === ===  PRIMARY  === === */
+@define-color primary                  {{ colors.primary.dark.hex }};
+@define-color primary-container        {{ colors.primary_container.dark.hex }};
+@define-color on-primary               {{ colors.on_primary.dark.hex }};
+
+/* === ===PRIMARY HUE40=== ===*/
+@define-color primary-hue40            {{ colors.primary.dark.hex | set_hue: 40.0 }};
+
+/*=== ===PRIMARY HUE180=== ===*/
+@define-color primary-hue180           {{ colors.primary.dark.hex | set_hue: 180.0 }};
+@define-color primary-container-hue180 {{ colors.primary_container.dark.hex | set_hue: 180.0 }};
+
+/* === ===PRIMARY DARK=== === */
+@define-color primary-container-dark   {{ colors.primary_container.dark.hex | set_lightness: -20.0  }};
+
+/* === === BACKGROUND === === */
+@define-color background               {{ colors.background.dark.hex  }};
+@define-color outline                  {{ colors.outline.dark.hex  }};
+@define-color outline-variant          {{ colors.outline_variant.dark.hex  }};
+
+/* === ===ERROR COLORS=== === */
+@define-color error                    {{ colors.error.dark.hex }};
+@define-color error-container          {{ colors.error_container.dark.hex }};
+
+

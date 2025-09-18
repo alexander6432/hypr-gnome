@@ -1,0 +1,16 @@
+themes {
+    hypr {
+        fg "{{ colors.primary.dark.hex | set_lightness: 20.0 }}"
+        bg "{{ colors.background.dark.hex }}"
+        black "{{ colors.background.dark.hex | set_lightness: 20.0 }}"
+        red "{{ colors.primary.dark.hex | set_hue: 240.0 | set_lightness: -20.0 }}"
+        orange "{{ colors.primary.dark.hex | set_hue: 270.0 | set_lightness: -2.0 }}"
+        yellow "{{ colors.primary.dark.hex | set_hue: 300.0 | set_lightness: -20.0 }}"
+        green "{{ colors.primary.dark.hex | set_hue: 330.0 | set_lightness: -20.0 }}"
+        blue "{{ colors.primary.dark.hex | set_lightness: -20.0 }}"
+        magenta "{{ colors.primary.dark.hex | set_hue: 30.0 | set_lightness: -20.0 }}"
+        cyan "{{ colors.primary.dark.hex }}"
+        white "{{ colors.on_background.dark.hex }}"
+    }
+}
+

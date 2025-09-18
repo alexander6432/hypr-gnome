@@ -1,0 +1,16 @@
+[config]
+allow_images=true
+show=dmenu
+width=53%
+height=50%
+always_parse_args=true
+show_all=true
+hide_scroll=false
+insensitive=true
+columns=3
+lines=3
+image_size=200
+prompt=Wallpaper:
+matching=fuzzy
+normal_window=true
+layer=overlay

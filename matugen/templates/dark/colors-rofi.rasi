@@ -1,0 +1,21 @@
+
+*{
+/*=== === ===DARK=== === ===*/
+/*  === === PRIMARY === === */
+  primary:              {{ colors.primary.dark.hex }};
+  primary-container:    {{ colors.primary_container.dark.hex }};
+  on-primary:           {{ colors.on_primary.dark.hex }};
+  on-primary-container: {{ colors.on_primary_container.dark.hex }};
+
+/*===BACKGROUND & SURFACE===*/
+  background:           {{ colors.background.dark.hex }}44;
+  surface:              {{ colors.surface.dark.hex }};
+  surface-container:    {{ colors.surface_container.dark.hex }}88;
+  on-background:        {{ colors.on_background.dark.hex }};
+
+/*=== ===ERROR COLORS=== ===*/
+  error:                {{ colors.error.dark.hex }};
+  error-container:      {{ colors.error_container.dark.hex }};
+
+}
+

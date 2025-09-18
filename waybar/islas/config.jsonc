@@ -1,0 +1,350 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 32, // Waybar height (to be removed for auto height)
+  "width": 1360, // Waybar width
+  "spacing": 4, // Gaps between modules (4px)
+  "margin-top": 8,
+  "margin-bottom": 0,
+  // Choose the order of the modules
+  "modules-left": [
+    "custom/wofi",
+    "group/left"
+  ],
+  "modules-center": [
+    "idle_inhibitor",
+    "hyprland/workspaces",
+    "tray"
+  ],
+  "modules-right": [
+    "group/device",
+    "group/clocky",
+    "custom/swaync"
+  ],
+  "custom/wofi": {
+    "format": "󰣇",
+    "tooltip": false,
+    "on-click": "~/.config/scripts/toggle_menu.sh",
+    "tooltip-format": "App Launcher"
+  },
+  "group/left": {
+    "orientation": "horizontal",
+    "modules": [
+      "hyprland/window",
+      "hyprland/submap"
+    ]
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "icon": true,
+    "icon-size": 24,
+    "max-length": 32,
+    "separate-outputs": false,
+    "swap-icon-label": false,
+    "tooltip": false
+  },
+  "hyprland/submap": {
+    "format": "{}",
+    "max-length": 12,
+    "tooltip": false
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip": false,
+    "format-icons": {
+      "activated": "󱎴",
+      "deactivated": "󰍹"
+    }
+  },
+  "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": false,
+    "hide-active": false,
+    "show-special": true,
+    "format": "{icon}<span size='8000'> {windows}</span>",
+    "window-rewrite-default": "󱕷",
+    "format-icons": {
+      "special": "󰠠",
+      "1": "󰲠",
+      "2": "󰲢",
+      "3": "󰲤",
+      "4": "󰲦",
+      "5": "󰲨",
+      "6": "󰲪",
+      "7": "󰲬",
+      "8": "󰲮",
+      "9": "9",
+      "10": "10",
+      "active": "󰪥",
+      "default": "",
+      "urgent": "󰵚"
+    },
+    "persistent-workspaces": {
+      "*": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "window-rewrite": {
+      "class<blueman-manager>": "󰂳",
+      "class<code>": "󰨞",
+      "class<firefox>": "󰈹",
+      "class<gimp>": "",
+      "class<google-chrome>": "",
+      "class<org.inkscape.Inkscape>": "",
+      "class<kitty>": "󰞷",
+      "class<krita>": "",
+      "class<libreoffice-startcenter>": "",
+      "class<libreoffice-base>": "",
+      "class<libreoffice-calc>": "",
+      "class<libreoffice-draw>": "",
+      "class<libreoffice-impress>": "",
+      "class<libreoffice-math>": "",
+      "class<libreoffice-writer>": "",
+      "class<org.gnome.Nautilus>": "󰀼",
+      "class<org.gnome.Loupe>": "",
+      "class<pentablet>": "",
+      "class<nm-connection-editor>": "󱚾",
+      "class<org.gnome.FileRoller>": "󰗄",
+      "class<org.libretro.RetroArch>": "󰊖",
+      "class<org.pulseaudio.pavucontrol>": "",
+      "class<spotify>": "󰓇",
+      "class<org.telegram.desktop>": "",
+      "class<waypaper>": "󰸉",
+      "class<org.wezfurlong.wezterm>": "",
+      "class<firefox> title<.*Facebook.*>": "",
+      "class<firefox> title<.*GitHub.*>": "󰊤",
+      "class<firefox> title<.*WhatsApp.*>": "󰖣",
+      "class<firefox> title<.*YouTube.*>": "",
+      "class<Google-chrome> title<.*Facebook.*>": "",
+      "class<Google-chrome> title<.*GitHub.*>": "󰊤",
+      "class<Google-chrome> title<.*WhatsApp.*>": "󰖣",
+      "class<Google-chrome> title<.*Youtube.*>": "",
+      "class<org.wezfurlong.wezterm> title<btop>": "",
+      "class<org.wezfurlong.wezterm> title<.*nvim.*>": "",
+      "class<org.wezfurlong.wezterm> title<.*pacman.*>": "󰮯",
+      "class<org.wezfurlong.wezterm> title<.*paru.*>": "󱑟",
+      "class<org.wezfurlong.wezterm> title<.*flatpak.*>": "",
+      "class<org.wezfurlong.wezterm> title<.*yazi.*>": "󰇥",
+      "class<org.wezfurlong.wezterm> title<.*jazz.*>": "󰇥",
+      "class<org.wezfurlong.wezterm> title<.*Zellij.*>": ""
+    }
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+    // "icons": {
+    //   "blueman": "bluetooth",
+    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    // }
+  },
+  "group/device": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "device",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "battery",
+      "pulseaudio",
+      "backlight"
+    ]
+  },
+  "custom/swaync": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+  "pulseaudio": {
+    "scroll-step": 5, // %, can be a float
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{icon}󰂰 {volume}% {format_source}",
+    "format-bluetooth-muted": "󰗿 {icon} {format_source}",
+    "format-muted": "󰝟 {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "max-volume": 125,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "󱡬",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "battery": {
+    "interval": 10,
+    "format": "{icon} {capacity}%",
+    "format-full": "󰂄 {capacity}%",
+    "format-charging": "{icon} {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "states": {
+      "good": 95,
+      "regular": 70,
+      "warning": 45,
+      "critical": 20
+    },
+    "format-icons": {
+      "default": [
+        "󰂎",
+        "󱊡",
+        "󱊢",
+        "󱊣"
+      ],
+      "charging": [
+        "󰢟",
+        "󱊤",
+        "󱊥",
+        "󱊦"
+      ]
+    }
+  },
+  "group/clocky": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/clock",
+      "clock"
+    ]
+  },
+  "custom/clock": {
+    "exec": "echo 󰥔 $(LC_TIME=es_MX.UTF-8 date '+%I:%M') $(LC_ALL=C date '+%p')",
+    "interval": 60,
+    "tooltip": false
+  },
+  "clock": {
+    "format": "󰃭",
+    "format-alt": "󰃭 {:L%A, %d de %B del %Y}",
+    "interval": 60,
+    "locale": "es_MX.UTF-8",
+    "timezone": "America/Mexico_City",
+    // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "left",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 5,
+    "consume-icons": {
+      "on": " "
+    },
+    "random-icons": {
+      "off": "<span color=\"#f53c3c\"></span> ",
+      "on": " "
+    },
+    "repeat-icons": {
+      "on": " "
+    },
+    "single-icons": {
+      "on": "1 "
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} x",
+    "tooltip-format": "{ifname} via {gwaddr} x",
+    "format-linked": "{ifname} (No IP) x",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate"
+    }
+  }
+}
