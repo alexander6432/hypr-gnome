@@ -7,6 +7,11 @@ zoxide init fish | source
 
 alias zzz='zellij'
 
+function gen-ssh
+    read -P "Ingresa tu correo: " email
+    ssh-keygen -t ed25519 -C "$email"
+end
+
 function repos
     sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 end
