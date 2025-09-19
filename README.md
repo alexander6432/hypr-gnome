@@ -25,13 +25,11 @@ ciertas funciones de Hyprland y sus complementos dependen de ellos.
 
 ### Paquetes AUR
 `matugen-bin` para dar sorporte de el cambio de colores al el entorno (rofi, hyprland(bordes),  
-hyprlock, waybar, wezterm(que asu vez da el color a starship, fastfetch, yazi).  
+hyprlock, waybar, kitty(que a su vez da el color a starship, fastfetch, yazi).  
 
 ### Paquetes de repositorios oficiales
 `blueman` gestor gráfico del bluetooth.  
 `brightnessctl` para controlar el brillo de la pantalla.  
-`btop` para ver el uso de recursos del sistema.  
-`fastfetch` para mostrar información del sistema en la terminal.  
 `git` para gestionar repositorios de Git.  
 `hypridle` para gestionar el estado de inactividad de Hyprland.  
 `hyprland` principal gestor de ventanas.  
@@ -48,7 +46,7 @@ hyprlock, waybar, wezterm(que asu vez da el color a starship, fastfetch, yazi).
 `xdg-desktop-portal-hyprland` para integrar aplicaciones GTK con Hyprland.  
 
 
-### Paquetes para usar mako, waypaper y/o rofi
+### Paquetes para usar mako, waypaper, wezterm y/o rofi
 ##### AUR
 `waypaper` para cambiar los fondos de pantalla.  
 
@@ -57,6 +55,7 @@ hyprlock, waybar, wezterm(que asu vez da el color a starship, fastfetch, yazi).
 matugen y waypaper).  
 `rofi-wayland` lanzador de aplicaciones y selector de ventanas.  
 `mako` asistente de notificaciones para Hyprland.  
+`wezterm` terminal emulador alterativo.  
 
 #### Otros Comandos útiles
 * `SUPER + ENTER` Para abrir la terminal  
