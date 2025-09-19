@@ -268,19 +268,18 @@
     "interval": 60,
     "locale": "es_MX.UTF-8",
     "timezone": "America/Mexico_City",
-    // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<tt><small><span font='JetBrainsMonoNL Nerd Font'>{calendar}</span></small></tt>",
     "calendar": {
       "mode": "month",
       "mode-mon-col": 3,
       "weeks-pos": "left",
       "on-scroll": 1,
       "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+        "months": "<span color='#40a02b'><b>{}</b></span>",
+        "days": "<span color='#eff1f5'><b>{}</b></span>",
+        "weeks": "<span color='#1e66f5'><b>W{}</b></span>",
+        "weekdays": "<span color='#df8e1d'><b>{}</b></span>",
+        "today": "<span color='#d20f39'><b><u>{}</u></b></span>"
       }
     },
     "actions": {

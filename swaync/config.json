@@ -64,14 +64,14 @@
     }
   },
   "widgets": [
-    "inhibitors",
+    "menubar",
+    "mpris",
     "title",
     "dnd",
-    "mpris",
     "notifications",
+    "inhibitors",
     "volume",
-    "backlight",
-    "menubar"
+    "backlight"
   ],
   "widget-config": {
     "notifications": {
