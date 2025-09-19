@@ -1,11 +1,11 @@
 #!/bin/bash
 # Ruta a tu archivo .conf (corregida)
-CONFIG_FILE="$HOME/.config/hypr/hyprtheme.conf"
+CONFIG_FILE="$HOME/.cache/dotfiles/hyprtheme.conf"
 
 # Función para obtener el valor rgba de una variable
 get_color() {
   local varname="$1"
-  grep "^\$$varname[[:space:]]*=" "$CONFIG_FILE" | awk '{print $3}' | tr -d '[:space:]'
+  grep "^\$${varname}[[:space:]]*=" "$CONFIG_FILE" | awk '{print $3}' | tr -d '[:space:]'
 }
 
 # Obtener colores
