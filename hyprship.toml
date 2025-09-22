@@ -178,23 +178,23 @@ revert = "REVERTING"
 style = "bg:red"
 
 [git_status]
-ahead = "[⇡$count ](bg:red fg:#1e66f5)"
-behind = "[⇣$count ](bg:red fg:#04a5e5)"
-conflicted = "[=$count ](bg:red fg:#d20f39)"
-deleted = "[✘$count ](bg:red fg:#e64553)"
 disabled = false
-diverged = "[⇕$count ](bg:red fg:#fe640b)"
+format = '[[($all_status$ahead_behind)]($style)]($style)'
 ignore_submodules = false
-modified = "[!$count ](bg:red fg:#df8e1d)"
-renamed = "[»$count ](bg:red fg:#8839ef)"
-staged = '[+$count ](bg:red fg:#40a02b)'
-format = '[[($all_status$ahead_behind)](fg:black bg:red)]($style)'
-stashed = "[$$count ](bg:red fg:peach)"
 style = "bg:red"
-typechanged = "$count ](bg:red fg:#209fb5)"
-untracked = "[?$count ](bg:red fg:#ea76cb)"
-# up_to_date = "[󰚰$count ](bg:red fg:white)"
 use_git_executable = false
+ahead = "[↑$count](bg:red fg:#1e66f5)"
+behind = "[↓$count](bg:red fg:#209fb5)"
+staged = "[+$count](bg:red fg:#179299)"
+modified = "[!$count](bg:red fg:#df8e1d)"
+renamed = "[➜$count](bg:red fg:#8839ef)"
+untracked = "[?$count](bg:red fg:#4c4f69)"
+typechanged = "[󰉺$count](bg:red fg:#ea76cb)"
+stashed = "[$count](bg:red fg:#eff1f5)"
+# up_to_date = "[✔](bg:red fg:#40a02b)"
+conflicted = "[⚠$count](bg:red fg:#d20f39)"
+deleted = "[✖$count](bg:red fg:#e64553)"
+diverged = "[$count](bg:red fg:#fe640b)"
 
 [conda]
 symbol = "  "
