@@ -8,15 +8,15 @@ get_current_layout() {
 case "$(get_current_layout)" in
 "master")
   case "$1" in
-  "swapsplit") hyprctl dispatch layoutmsg swapnext loop ;;
-  "togglesplit") hyprctl dispatch layoutmsg cyclenext loop ;;
+  "togglesplit") hyprctl dispatch layoutmsg swapnext loop ;;
+  "swapsplit") hyprctl dispatch layoutmsg cyclenext loop ;;
   "pseudo") hyprctl dispatch layoutmsg swapwithmaster master ;;
   esac
   ;;
 "dwindle")
   case "$1" in
-  "swapsplit") hyprctl dispatch swapsplit ;;
   "togglesplit") hyprctl dispatch togglesplit ;;
+  "swapsplit") hyprctl dispatch swapsplit ;;
   "pseudo") hyprctl dispatch pseudo ;;
   esac
   ;;
