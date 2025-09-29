@@ -155,10 +155,10 @@
             "type": "terminalfont",
             "key": "│{#yellow}│ {icon}  Term Font │{$4}│{#keys}│{$2}"
         },
-        {
-            "type": "terminaltheme",
-            "key": "│{#yellow}│ {icon}  Colors    │{$4}│{#keys}│{$2}"
-        },
+        // {
+        //     "type": "terminaltheme",
+        //     "key": "│{#yellow}│ {icon}  Colors    │{$4}│{#keys}│{$2}"
+        // },
         {
             "type": "packages",
             "key": "│{#yellow}│ {icon}  Packages  │{$4}│{#keys}│{$2}"
