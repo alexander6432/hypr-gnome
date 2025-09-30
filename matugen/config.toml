@@ -2,7 +2,7 @@
 version_check = false
 
 [templates.hyprland]
-input_path = "~/.config/matugen/templates/dark/hyprtheme.conf"
+input_path = "~/.config/matugen/templates/dark/colors-hyprland.conf"
 output_path = "~/.cache/dotfiles/hyprtheme.conf"
 post_hook = "hyprctl reload"
 
@@ -10,15 +10,6 @@ post_hook = "hyprctl reload"
 input_path = "~/.config/matugen/templates/dark/colors-kitty.conf"
 output_path = "~/.cache/dotfiles/colors-kitty.conf"
 post_hook = "pkill -SIGUSR1 kitty"
-
-[templates.mako]
-input_path = "~/.config/matugen/templates/dark/colors_mako.conf"
-output_path = "~/.cache/dotfiles/colors_mako.conf"
-post_hook = "systemctl --user restart mako"
-
-[templates.rofi]
-input_path = "~/.config/matugen/templates/dark/colors-rofi.rasi"
-output_path = "~/.cache/dotfiles/colors-rofi.rasi"
 
 [templates.swaync]
 input_path = "~/.config/matugen/templates/dark/colors-swaync.css"
@@ -30,11 +21,3 @@ input_path = "~/.config/matugen/templates/dark/colors-waybar.css"
 output_path = "~/.cache/dotfiles/colors-waybar.css"
 # post_hook = "killall waybar && waybar &"
 post_hook = 'pkill -SIGUSR2 waybar'
-
-[templates.wezterm]
-input_path = "~/.config/matugen/templates/dark/colors_wezterm.lua"
-output_path = "~/.cache/dotfiles/colors_wezterm.lua"
-
-[templates.zellij]
-input_path = "~/.config/matugen/templates/dark/colors-zellij.kdl"
-output_path = "~/.cache/dotfiles/hypr.kdl"
