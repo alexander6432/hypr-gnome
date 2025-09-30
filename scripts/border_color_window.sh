@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ruta a tu archivo .conf (corregida)
-CONFIG_FILE="$HOME/.cache/dotfiles/hyprtheme.conf"
+CONFIG_FILE="$HOME/.cache/dotfiles/colors_hyprland.conf"
 
 # Función para obtener el valor rgba de una variable
 get_color() {

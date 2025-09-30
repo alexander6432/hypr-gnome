@@ -24,7 +24,7 @@ Es importante tener aun AUR helper como `paru` o `yay` para instalar los paquete
 ciertas funciones de Hyprland y sus complementos dependen de ellos.
 
 ### Paquetes AUR
-`matugen-bin` para dar sorporte de el cambio de colores al el entorno (rofi, hyprland(bordes),  
+`matugen-bin` para dar sorporte de el cambio de colores al el entorno (wofi, hyprland(bordes),  
 hyprlock, waybar, kitty(que a su vez da el color a starship, fastfetch, yazi).  
 
 ### Paquetes de repositorios oficiales
@@ -44,18 +44,6 @@ hyprlock, waybar, kitty(que a su vez da el color a starship, fastfetch, yazi).
 `waybar` panel de estado y notificaciones para Hyprland.  
 `wofi` lanzador de aplicaciones y selector de wallpapers.  
 `xdg-desktop-portal-hyprland` para integrar aplicaciones GTK con Hyprland.  
-
-
-### Paquetes para usar mako, waypaper, wezterm y/o rofi
-##### AUR
-`waypaper` para cambiar los fondos de pantalla.  
-
-##### Paquetes de repositorios oficiales
-`inotify-tools` para monitorear eventos del sistema de archivos (vital para el script que gestiona
-matugen y waypaper).  
-`rofi-wayland` lanzador de aplicaciones y selector de ventanas.  
-`mako` asistente de notificaciones para Hyprland.  
-`wezterm` terminal emulador alterativo.  
 
 #### Otros Comandos útiles
 * `SUPER + ENTER` Para abrir la terminal  

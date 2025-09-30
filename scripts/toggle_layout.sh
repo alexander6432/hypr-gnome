@@ -30,9 +30,9 @@ bindd = \$mainMod,       S, Intercambia Ventana con la Siguiente(Master), layout
 bindd = \$mainMod SHIFT, S, Enfocar Siguiente Ventana(Master),            layoutmsg, cyclenext loop
 bindd = \$mainMod,       A, Intercambia Ventana con la Master(Master),    layoutmsg, swapwithmaster master
 
-bindd = \$mainMod SHIFT, A, Cambiar Orientación de Ventanas Esclavas(Master), layoutmsg, orientationnext
-bindd = \$mainMod, up,   Incrementar Dimensión de Ventana Master(Master),     layoutmsg, mfact +0.05
-bindd = \$mainMod, down, Disminuir Dimensión de Ventana Master(Master),       layoutmsg, mfact -0.05
+bindd = \$mainMod SHIFT, A,    Cambiar Orientación de Ventanas Esclavas(Master), layoutmsg, orientationnext
+bindd = \$mainMod,       up,   Incrementar Dimensión de Ventana Master(Master),  layoutmsg, mfact +0.05
+bindd = \$mainMod,       down, Disminuir Dimensión de Ventana Master(Master),    layoutmsg, mfact -0.05
 EOF
 }
 

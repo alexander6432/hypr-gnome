@@ -3,7 +3,7 @@ version_check = false
 
 [templates.hyprland]
 input_path = "~/.config/matugen/templates/dark/colors-hyprland.conf"
-output_path = "~/.cache/dotfiles/hyprtheme.conf"
+output_path = "~/.cache/dotfiles/colors_hyprland.conf"
 post_hook = "hyprctl reload"
 
 [templates.kitty]
