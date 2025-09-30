@@ -32,6 +32,7 @@
     "orientation": "horizontal",
     "modules": [
       "hyprland/window",
+      "custom/layout",
       "hyprland/submap"
     ]
   },
@@ -43,6 +44,10 @@
     "separate-outputs": false,
     "swap-icon-label": false,
     "tooltip": false
+  },
+  "custom/layout": {
+    "exec": "~/.config/scripts/get_layout.sh",
+    "interval": 2,
   },
   "hyprland/submap": {
     "format": "{}",

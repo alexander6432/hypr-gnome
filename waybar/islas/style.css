@@ -86,6 +86,14 @@ button:hover {
   margin: 0 4px;
 }
 
+#custom-layout {
+  background-color: @background;
+  color: @primary;
+  font-size: 14px;
+  padding: 0 10px 0 8px;
+  border-radius: 10px;
+}
+
 #submap {
   color: @primary-container;
   font-size: 14px;
