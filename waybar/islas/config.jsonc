@@ -18,6 +18,7 @@
     "tray"
   ],
   "modules-right": [
+    "keyboard-state",
     "group/device",
     "group/clocky",
     "custom/swaync"
@@ -183,10 +184,9 @@
   "keyboard-state": {
     "numlock": true,
     "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
+    "format": {
+      "numlock": "",
+      "capslock": "󰪛"
     }
   },
   "pulseaudio": {
