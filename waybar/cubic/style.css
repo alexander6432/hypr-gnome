@@ -1,0 +1,352 @@
+@import url("file:///home/alex/.cache/dotfiles/colors-waybar.css");
+
+* {
+  font-family: JetBrainsMonoNL Nerd Font;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+tooltip {
+  font-family: JetBrainsMonoNL Nerd Font;
+  background: alpha(@background, 0.75);
+  border: 2px solid @background;
+  border-radius: 0;
+}
+
+tooltip label {
+  color: @primary;
+}
+
+window#waybar {
+  background-color: alpha(@background, 0.75);
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+}
+
+window#waybar.empty #custom-layout {
+  background-color: transparent;
+  color: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: inset 0 -4px transparent;
+}
+
+/* window#waybar.solo { */
+/*   background-color: alpha(@primary, 0.25); */
+/*   border-radius: 10px; */
+/*   border: none; */
+/* } */
+/**/
+/* window#waybar.google-chrome { */
+/*   background-color: alpha(@background, 0.25); */
+/*   border-radius: 10px; */
+/*   border: none; */
+/* } */
+/**/
+button {
+  box-shadow: inset 0 -4px transparent;
+  border: none;
+  border-radius: 0;
+}
+
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -4px @primary;
+}
+
+#custom-wofi {
+  background-color: transparent;
+  color: @primary;
+  font-size: 16px;
+  padding: 0 12px 0 8px;
+  border-radius: 0;
+  box-shadow: inset 0 -4px @background;
+}
+
+#custom-wofi:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+}
+
+#window {
+  background-color: transparent;
+  border-radius: 0;
+  color: @primary;
+  font-size: 12px;
+  padding: 0 12px 0 8px;
+  margin: 0 4px;
+}
+
+#custom-layout {
+  background-color: transparent;
+  color: @primary;
+  font-size: 14px;
+  padding: 0 10px 0 8px;
+  border-radius: 0;
+  box-shadow: inset 0 -4px @background;
+}
+
+#custom-layout:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+}
+
+#submap {
+  color: @primary;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+#idle_inhibitor.deactivated {
+  color: @primary;
+  background-color: transparent;
+  padding: 0 12px 0 8px;
+  border-radius: 0;
+  box-shadow: inset 0 -4px @background;
+}
+
+#idle_inhibitor.activated {
+  color: @primary;
+  background-color: transparent;
+  padding: 0 12px 0 8px;
+  border-radius: 0;
+  box-shadow: inset 0 -4px @primary;
+}
+
+#idle_inhibitor:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+  border: none;
+}
+
+#workspaces {
+  border-radius: 0;
+  background-color: transparent;
+  margin: 0 2px;
+  padding: 0 8px;
+}
+
+#workspaces button {
+  font-size: 20px;
+  color: @primary;
+  padding: 0 6px;
+  border-radius: 0;
+  margin: 0 2px;
+  box-shadow: inset 0 -4px @background;
+}
+
+#workspaces button:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+}
+
+#workspaces button.empty {
+  color: @outline-variant;
+  box-shadow: inset 0 -4px @outline-variant;
+}
+
+#workspaces button.empty:hover {
+  color: @primary;
+  box-shadow: inset 0 -4px @primary;
+}
+
+#workspaces button.active {
+  color: @primary-hue40;
+  box-shadow: inset 0 -4px @primary-hue40;
+}
+
+#workspaces button.focused {
+  color: @error-container;
+  box-shadow: inset 0 -4px @primary;
+}
+
+#workspaces button.special {
+  color: @primary-hue180;
+  box-shadow: inset 0 -4px @background;
+}
+
+#workspaces button.special:hover {
+  color: @primary-hue180;
+  box-shadow: inset 0 -4px @primary-hue180;
+}
+
+#workspaces button.urgent {
+  color: @error;
+  box-shadow: inset 0 -4px @error;
+}
+
+#tray {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0 4px;
+  box-shadow: inset 0 -4px @background;
+}
+
+#tray:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+}
+
+#tray > .active {
+  -gtk-icon-effect: dim;
+}
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @error;
+  box-shadow: inset 0 -4px @error;
+}
+
+#custom-swaync {
+  background-color: transparent;
+  color: @primary;
+  padding: 0 12px 0 10px;
+  border-radius: 0;
+  box-shadow: inset 0 -4px @background;
+}
+
+#custom-swaync:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+  border: none;
+}
+
+#pulseaudio {
+  font-size: 12px;
+  color: @primary;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0 10px 0 8px;
+  box-shadow: inset 0 -4px @background;
+}
+
+#pulseaudio.source-muted,
+#pulseaudio.muted {
+    color: @outline-variant;
+    box-shadow: inset 0 -4px @outline-variant;
+}
+
+#pulseaudio:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+  border: none;
+}
+
+#keyboard-state label {
+    color: transparent;
+    font-size: 0;
+    padding: 0px;
+    margin: 0px;
+}
+
+#keyboard-state label.locked {
+  font-size: 12px;
+  color: @primary;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0 11px 0 8px;
+  margin: 0 4px 0 0;
+}
+
+#backlight {
+  font-size: 12px;
+  background-color: transparent;
+  color: @primary;
+  border-radius: 0;
+  padding: 0 10px 0 8px;
+  margin: 0 4px;
+  box-shadow: inset 0 -4px @background;
+}
+
+#backlight:hover {
+  font-size: 12px;
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+  border: none;
+}
+
+#battery {
+  background-color: transparent;
+  color: @primary;
+  border-radius: 0;
+  padding: 0 10px 0 8px;
+  box-shadow: inset 0 -4px @background;
+}
+
+#battery.charging, #battery.plugged {
+    color: @primary;
+    background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+}
+
+#battery.regular {
+  color: @primary-hue40;
+  box-shadow: inset 0 -4px @primary-hue40;
+}
+
+#battery.warning {
+  color: @primary-hue180;
+  box-shadow: inset 0 -4px @primary-hue180;
+}
+
+@keyframes blink {
+    to {
+        background-color: @error-container;
+        color: @error;
+    }
+}
+
+#battery.critical:not(.charging) {
+  background-color: @background;
+  color: @primary;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  box-shadow: inset 0 -4px @error-container;
+}
+
+#custom-clock {
+  padding: 0 4px 0 8px;
+}
+
+#clock {
+  color: @primary;
+  border-radius: 0;
+  padding: 0 12px 0 10px;
+}
+
+#clock:hover {
+  background-color: @on-primary;
+  box-shadow: inset 0 -4px @primary;
+}
+
+#clocky {
+  font-size: 12px;
+  background-color: transparent;
+  color: @primary;
+  border-radius: 0;
+  box-shadow: inset 0 -4px @background;
+}
