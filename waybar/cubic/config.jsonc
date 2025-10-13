@@ -110,7 +110,7 @@
       "class<firefox>": "󰈹",
       "class<gimp>": "",
       "class<google-chrome>": "",
-      "class<kitty> title<.*Zellij.*>": ""
+      "class<kitty> title<.*Zellij.*>": "",
       "class<kitty> title<.*flatpak.*>": "",
       "class<kitty> title<.*helix.*>": "󰚄",
       "class<kitty> title<.*jazz.*>": "󰇥",
@@ -140,7 +140,7 @@
       "class<pentablet>": "",
       "class<spotify>": "󰓇",
       "class<wofi> title<Wallpaper:>": "󰸉",
-      "class<wofi>": "󰌧",
+      "class<wofi>": "󰌧"
     }
   },
   "tray": {
