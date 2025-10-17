@@ -32,14 +32,14 @@ grupos)
 esac
 
 # Aplicar colores a Hyprland
-hyprctl keyword general:border_size 3
+hyprctl keyword general:border_size 4
 hyprctl keyword general:col.active_border "$active_border"
 hyprctl keyword decoration:shadow:enabled false
 hyprctl keyword decoration:shadow:color "$active_border"
-hyprctl keyword decoration:shadow:range 10
-hyprctl keyword decoration:shadow:render_power 10
+hyprctl keyword decoration:shadow:range 8
+hyprctl keyword decoration:shadow:render_power 8
 hyprctl keyword decoration:rounding 0
-hyprctl keyword decoration:inactive_opacity 0.7
+hyprctl keyword decoration:inactive_opacity 0.75
 hyprctl keyword decoration:active_opacity 0.9
 
 hyprctl keyword group:col.border_active "$group_border"
