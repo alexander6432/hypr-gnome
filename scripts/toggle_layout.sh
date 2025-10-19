@@ -13,10 +13,14 @@ mkdir -p "$CACHE_DIR"
 
 write_dwindle_binds() {
   cat <<EOF
-bindd = \$mainMod CTRL,  H, Abrir Próxima Ventana hacia la Izquierda (Dwindle), layoutmsg, preselect l
-bindd = \$mainMod CTRL,  L, Abrir Próxima Ventana hacia la Derecha (Dwindle),   layoutmsg, preselect r
-bindd = \$mainMod CTRL,  K, Abrir Próxima Ventana hacia Arriba (Dwindle),       layoutmsg, preselect u
-bindd = \$mainMod CTRL,  J, Abrir Próxima Ventana hacia Abajo (Dwindle),        layoutmsg, preselect d
+bindd = \$mainMod CTRL,  H, Abrir Próxima Ventana hacia la Izquierda (Dwindle), exec, hyprctl --batch "keyword general:col.active_border\\
+  \$primary_dark \$primary_dark \$primary_dark \$primary_hue180_dark 180deg; dispatch layoutmsg preselect l" && ~/.config/scripts/hypr_preselect.sh
+bindd = \$mainMod CTRL,  L, Abrir Próxima Ventana hacia la Derecha (Dwindle),   exec, hyprctl --batch "keyword general:col.active_border\\
+  \$primary_dark \$primary_dark \$primary_dark \$primary_hue180_dark 0deg; dispatch layoutmsg preselect r" && ~/.config/scripts/hypr_preselect.sh
+bindd = \$mainMod CTRL,  K, Abrir Próxima Ventana hacia Arriba (Dwindle),       exec, hyprctl --batch "keyword general:col.active_border\\
+  \$primary_dark \$primary_dark \$primary_dark \$primary_hue180_dark 270deg; dispatch layoutmsg preselect u" && ~/.config/scripts/hypr_preselect.sh
+bindd = \$mainMod CTRL,  J, Abrir Próxima Ventana hacia Abajo (Dwindle),        exec, hyprctl --batch "keyword general:col.active_border\\
+  \$primary_dark \$primary_dark \$primary_dark \$primary_hue180_dark 90deg; dispatch layoutmsg preselect d" && ~/.config/scripts/hypr_preselect.sh
 
 bindd = \$mainMod,       S, Alterna disposición de Ventanas (Dwindle),  togglesplit
 bindd = \$mainMod SHIFT, S, Intercambia Posición de Ventanas (Dwindle), swapsplit
