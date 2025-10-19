@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Matar instancias anteriores del mismo script
+SCRIPT_PATH="$(readlink -f "$0")"
+CURRENT_PID=$$
+
+for pid in $(pgrep -f "$SCRIPT_PATH"); do
+  [[ "$pid" != "$CURRENT_PID" ]] && kill "$pid" 2>/dev/null
+done
+sleep 0.05 # pequeño retraso para evitar carrera
+
+# Bucle principal
 while true; do
   bat=$(cat /sys/class/power_supply/BAT1/capacity)
   status=$(cat /sys/class/power_supply/BAT1/status)
