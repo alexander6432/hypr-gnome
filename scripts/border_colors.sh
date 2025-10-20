@@ -37,10 +37,12 @@ hyprctl keyword decoration:shadow:render_power 8
 hyprctl keyword decoration:rounding 0
 hyprctl keyword decoration:inactive_opacity 0.75
 hyprctl keyword decoration:active_opacity 0.9
+hyprctl keyword decoration:rounding 8
+hyprctl keyword decoration:rounding_power 4
 
 hyprctl keyword group:col.border_active "$active_border"
 hyprctl keyword group:col.border_locked_active "$active_border"
-hyprctl keyword group:groupbar:gradient_rounding 0
+hyprctl keyword group:groupbar:gradient_rounding 4
 
 # Notificación
 notify-send --app-name Submaps -u normal "$title" "$message"
