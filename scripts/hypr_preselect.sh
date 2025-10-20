@@ -18,7 +18,7 @@ get_color() {
 
 # Colores de borde por dirección
 COLOR_DEFAULT="$(get_color primary_dark)"
-COLOR_DEFAULT2="$(get_color primary_hue36_dark)"
+COLOR_DEFAULT2="$(get_color primary_hue40_dark)"
 
 # Función para resetear colores cuando se abra una ventana
 wait_and_reset() {

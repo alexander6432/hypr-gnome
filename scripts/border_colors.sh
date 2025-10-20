@@ -13,17 +13,13 @@ get_color() {
 case "$1" in
 ventanas)
   active_border="$(get_color primary_hue120)"
-  group_border="$(get_color primary_hue300)"
   title="🪟 Submaps"
   message="Entrando de Submapa de Ventanas"
   ;;
 grupos)
   active_border="$(get_color primary_hue240)"
-  group_border="$(get_color primary_hue60)"
   title="🔀 Submaps"
   message="Entrando de Submapa de Grupos"
-  hyprctl keyword group:groupbar:font_size 0
-  hyprctl keyword group:groupbar:height 8
   ;;
 *)
   echo "Uso: $0 [ventanas|grupos]"
@@ -42,8 +38,9 @@ hyprctl keyword decoration:rounding 0
 hyprctl keyword decoration:inactive_opacity 0.75
 hyprctl keyword decoration:active_opacity 0.9
 
-hyprctl keyword group:col.border_active "$group_border"
-hyprctl keyword group:col.border_locked_active "$group_border"
+hyprctl keyword group:col.border_active "$active_border"
+hyprctl keyword group:col.border_locked_active "$active_border"
+hyprctl keyword group:groupbar:gradient_rounding 0
 
 # Notificación
 notify-send --app-name Submaps -u normal "$title" "$message"
