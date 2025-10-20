@@ -32,8 +32,7 @@ function format_key(k,   parts) {
     # Traducir scroll
     if (k == "F1") return "󱊫"
     if (k == "F2") return "󱊬"
-    if (k == "PRINT") return "Impr Pant"
-    if (k == "Tab") return "󰌒"
+    if (k == "Tab") return ""
     if (k == "XF86AudioLowerVolume") return ""
     if (k == "XF86AudioMicMute") return ""
     if (k == "XF86AudioMute") return ""
@@ -45,6 +44,7 @@ function format_key(k,   parts) {
     if (k == "XF86AudioStop") return ""
     if (k == "XF86MonBrightnessDown") return "󰃞"
     if (k == "XF86MonBrightnessUp") return "󰃠"
+    if (k == "backspace") return "󰞓"
     if (k == "down") return ""
     if (k == "escape") return "󱊷"
     if (k == "left") return ""
@@ -56,6 +56,9 @@ function format_key(k,   parts) {
     if (k == "right") return ""
     if (k == "space") return "󱁐"
     if (k == "up") return ""
+    if (k == "PRINT") return "Impr Pant"
+    if (k == "end") return "Fin"
+    if (k == "page_down") return "AvPág"
     if (k == "apostrophe") return "\x27"
 
     # Traducir clicks
