@@ -1,6 +1,16 @@
 #!/bin/bash
 
-hyprctl binds | awk '
+modo="$1" # ejemplo: ./atajos.sh grupos o ./atajos.sh ventanas
+
+if [[ $modo == "grupos" ]]; then
+  filtro="\[Modo Grupos\]"
+elif [[ $modo == "ventanas" ]]; then
+  filtro="\[Modo Ventanas\]"
+else
+  filtro=""
+fi
+# Ejecutar hyprctl y procesar con awk
+salida=$(hyprctl binds | awk '
 function modmask_to_names(mask,   names, i, result) {
     split("", names)
     if (and(mask, 128)) names[length(names)+1] = "ALTGR"
@@ -90,4 +100,11 @@ BEGIN {
     printf CYAN "%-10s" RESET, key_display
     printf YELLOW "%-76s\n" RESET, desc
 }
-' | fzf --ansi --reverse --prompt="Buscar atajo: " --preview-window=down:3
+')
+
+# Aplicar filtro según modo
+if [[ -n $filtro ]]; then
+  echo "$salida" | grep "$filtro"
+else
+  echo "$salida" | grep -v "\[Modo Grupos\]\|\[Modo Ventanas\]"
+fi | fzf --ansi --reverse --prompt="Buscar atajo: " --preview-window=down:3
