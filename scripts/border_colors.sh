@@ -28,7 +28,7 @@ grupos)
 esac
 
 # Aplicar colores a Hyprland
-hyprctl keyword general:border_size 4
+hyprctl keyword general:border_size 2
 hyprctl keyword general:col.active_border "$active_border"
 hyprctl keyword decoration:shadow:enabled false
 hyprctl keyword decoration:shadow:color "$active_border"
