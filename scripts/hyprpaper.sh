@@ -60,8 +60,16 @@ check_dependencies() {
 ensure_hyprpaper_running() {
   if ! pgrep -x hyprpaper >/dev/null; then
     echo "Iniciando hyprpaper..."
-    hyprpaper &
-    sleep 0.5
+
+    # Crear el archivo de configuración si no existe
+    if [ ! -f "$HYPRPAPER_CONFIG" ]; then
+      mkdir -p "$(dirname "$HYPRPAPER_CONFIG")"
+      echo "splash = false" > "$HYPRPAPER_CONFIG"
+    fi
+
+    # Iniciar hyprpaper con la configuración personalizada
+    hyprpaper -c "$HYPRPAPER_CONFIG" &
+    sleep 0.5    
 
     # Verificar que inició correctamente
     local retries=5
@@ -86,7 +94,7 @@ apply_wallpaper() {
   local wallpaper="$1"
 
   # Precargar la imagen
-  if ! hyprctl hyprpaper preload "$wallpaper" 2>/dev/null; then
+  if ! hyprctl hyprpaper reload "$wallpaper" 2>/dev/null; then
     error_exit "No se pudo precargar el wallpaper"
   fi
 
@@ -146,6 +154,9 @@ update_config() {
     done <<<"$monitors"
     echo ""
     echo "splash = false"
+    echo "splash_offset = 2.0"
+    echo "splash_color = 55ffffff"
+    echo "ipc = true"
   } >"$HYPRPAPER_CONFIG"
 }
 

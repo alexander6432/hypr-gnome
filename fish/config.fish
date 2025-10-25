@@ -5,15 +5,9 @@ end
 
 zoxide init fish | source
 
-alias zzz='zellij'
-
 function gen-ssh
     read -P "Ingresa tu correo: " email
     ssh-keygen -t ed25519 -C "$email"
-end
-
-function repos
-    sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 end
 
 function update-grub
@@ -40,17 +34,10 @@ function jazz
     rm -f -- "$tmp"
 end
 
-function fish_prompt
-    if test "$ZELLIJ" = 1
-        set title (basename (pwd))
-        zellij action rename-tab "$title" ^/dev/null
-    end
-
-    starship prompt
-end
-
 if string match -q "*Hyprland*" "$XDG_SESSION_DESKTOP"; or string match -q "*sway*" "$XDG_SESSION_DESKTOP"
     set -gx STARSHIP_CONFIG ~/.config/hyprship.toml
 else
-    starship init fish | source
+    set -gx STARSHIP_CONFIG ~/.config/starship.toml
 end
+
+starship init fish | source

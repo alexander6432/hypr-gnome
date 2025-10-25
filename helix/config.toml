@@ -13,6 +13,7 @@ preview-completion-insert = false
 completion-trigger-len = 2
 completion-replace = false
 auto-info = true
+true-color = true
 bufferline = "multiple"
 color-modes = true
 popup-border = "all"
@@ -28,6 +29,18 @@ mode.select = "SELECT"
 diagnostics = ["warning", "error"]
 workspace-diagnostics = ["warning", "error"]
 
+[editor.lsp]
+enable = true
+display-messages = true
+display-progress-messages = true
+auto-signature-help = true
+display-inlay-hints = true
+display-color-swatches = true
+display-signature-help-docs = true
+snippets = true
+goto-reference-include-declaration = true
+
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
@@ -35,3 +48,8 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[editor.indent-guides]
+render = true
+character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
