@@ -5,7 +5,7 @@ scrolloff = 5
 mouse = true
 default-yank-register = '"'
 middle-click-paste = true
-scroll-lines = 3
+scroll-lines = 5
 shell = ["sh", "-c"]
 line-number = "relative"
 cursorline = true
@@ -70,7 +70,7 @@ insert = "bar"
 select = "underline"
 
 [editor.file-picker]
-hidden = false
+hidden = true
 follow-symlinks = true
 deduplicate-links = true
 parents = true
@@ -137,14 +137,23 @@ supersede-menu = false
 
 [editor.inline-diagnostics]
 cursor-line = "error"
-other-lines = "info"
-prefix-len = 2
+other-lines = "warning"
+prefix-len = 1
 max-wrap = 20
 max-diagnostics = 10
 
 [keys.normal]
 X = "extend_line_above"
 C-r = ":config-reload"
+
+[keys.normal.G]
+Q = ":buffer-close!"
+q = ":buffer-close"
+O = ":buffer-close-others!"
+o = ":buffer-close-others"
+n = ":buffer-next"
+p = ":buffer-previous"
+w = ":write-all"
 
 [keys.select]
 X = "extend_line_above"

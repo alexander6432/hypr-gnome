@@ -49,7 +49,7 @@
   "custom/layout": {
     "exec": "~/.config/scripts/get_layout.sh",
     "on-click": "~/.config/scripts/toggle_layout.sh",
-    "interval": 2,
+    "interval": 2
   },
   "hyprland/submap": {
     "format": "{}",
@@ -145,7 +145,7 @@
   },
   "tray": {
     "icon-size": 21,
-    "spacing": 10,
+    "spacing": 10
     // "icons": {
     //   "blueman": "bluetooth",
     //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
