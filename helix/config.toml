@@ -26,7 +26,7 @@ undercurl = false
 rulers = []
 bufferline = "multiple"
 color-modes = true
-text-width = 80
+text-width = 120
 workspace-lsp-roots = []
 default-line-ending = "native"
 insert-final-newline = true
@@ -41,9 +41,27 @@ clipboard-provider = "wayland"
 editor-config = true
 
 [editor.statusline]
-left = ["mode", "spacer", "version-control", "file-name", "read-only-indicator", "file-modification-indicator", "spinner"]
+left = [
+  "mode",
+  "spacer",
+  "version-control",
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator",
+  "spinner",
+]
 center = []
-right = ["workspace-diagnostics","diagnostics" , "primary-selection-length", "selections", "register", "position-percentage", "position", "total-line-numbers", "file-encoding"]
+right = [
+  "workspace-diagnostics",
+  "diagnostics",
+  "primary-selection-length",
+  "selections",
+  "register",
+  "position-percentage",
+  "position",
+  "total-line-numbers",
+  "file-encoding",
+]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
@@ -76,7 +94,7 @@ deduplicate-links = true
 parents = true
 ignore = true
 git-ignore = true
-git-global =true
+git-global = true
 git-exclude = true
 max-depth = 5
 
