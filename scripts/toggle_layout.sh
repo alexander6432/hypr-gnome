@@ -23,7 +23,7 @@ EOF
 
 write_scrolling_binds() {
   cat <<EOF
-source = ~/.config/hypr/hyprland/plugins/key_scrolling.conf
+source = ~/.config/hypr/hyprland/plugins/scrolling.conf
 EOF
 }
 
