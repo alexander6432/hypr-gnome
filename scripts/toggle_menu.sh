@@ -6,5 +6,5 @@ if pgrep -x wofi >/dev/null; then
   pkill -x wofi
 else
   # Si no está ejecutándose, ábrelo
-  wofi -n
+  wofi
 fi

@@ -2,11 +2,13 @@
 /*=== === === DARK === === ===*/
 /*  === ===  PRIMARY  === === */
 @define-color primary                  {{ colors.primary.dark.hex }};
+@define-color primary-dark             {{ colors.primary.dark.hex | set_lightness: -20.0 }};
 @define-color primary-container        {{ colors.primary_container.dark.hex }};
 @define-color on-primary               {{ colors.on_primary.dark.hex }};
 
 /* === ===PRIMARY HUE40=== ===*/
 @define-color primary-hue40            {{ colors.primary.dark.hex | set_hue: 40.0 }};
+@define-color primary-hue40-dark       {{ colors.primary.dark.hex | set_hue: 40.0 | set_lightness: -20.0 }};
 
 /*=== ===PRIMARY HUE180=== ===*/
 @define-color primary-hue180           {{ colors.primary.dark.hex | set_hue: 180.0 }};

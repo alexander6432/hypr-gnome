@@ -28,7 +28,8 @@
 window {
     all: unset;
     padding: 0x;
-    border-radius: 0px;
+    border: 2px solid @primary-dark;
+    border-radius: 8px;
     background-color: alpha(@background, 0.75);
     animation: slideIn 0.2s ease-out;
 }
