@@ -382,17 +382,24 @@ binds {
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
 
+    Mod+I { focus-column-first; }
+    Mod+O { focus-column-last; }
+
+    Mod+C       { center-column; }
+    Mod+Shift+C { center-visible-columns; }
+
+// ===========
+// move window
+// ===========
     Mod+Shift+Left  { move-column-left; }
     Mod+Shift+Down  { move-window-down; }
     Mod+Shift+Up    { move-window-up; }
     Mod+Shift+Right { move-column-right; }
 
-    Mod+I       { focus-column-first; }
-    Mod+Shift+I { focus-column-last; }
+    Mod+Shift+I { move-column-to-first; }
+    Mod+Shift+O { move-column-to-last; }
 
-    Mod+C { center-column; }
-    Mod+Shift+C { center-visible-columns; }
-
+    Mod+W { toggle-column-tabbed-display; }
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
 
@@ -404,6 +411,11 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Plus { set-window-height "+10%"; }
 
+    Shift+TouchpadScrollDown { set-column-width "-2%"; }
+    Shift+TouchpadScrollUp { set-column-width "+2%"; }
+    Ctrl+TouchpadScrollDown { set-window-height "-2%"; }
+    Ctrl+TouchpadScrollUp { set-window-height "+2%"; }
+
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
@@ -412,6 +424,24 @@ binds {
     Mod+Shift+E { fullscreen-window; }
     Mod+Ctrl+E { expand-column-to-available-width; }
 
+// ========
+// floating
+// ========
+    Mod+F       { toggle-window-floating; }
+    Mod+Shift+F { switch-focus-between-floating-and-tiling; }
+
+// =============
+// miscellaneous
+// =============
+    Mod+F1 hotkey-overlay-title="Abrir: Asistente de atajos" { show-hotkey-overlay; }
+    Mod+Escape repeat=false { toggle-overview; }
+    Mod+Shift+Escape { quit; }
+    Mod+Q repeat=false { close-window; }
+
+
+// ============
+// applications
+// ============
     Mod+return hotkey-overlay-title="Abrir: Terminal Kitty" { spawn "kitty"; }
     Mod+space hotkey-overlay-title="Abrir: Lanzador de Aplicaciones" { spawn "~/.config/scripts/toggle_menu.sh"; }
     Mod+L hotkey-overlay-title="Bloquear Pantalla" { spawn "hyprlock"; }
@@ -419,26 +449,16 @@ binds {
     Mod+N hotkey-overlay-title="Abrir: Centro de Notificaciones" { spawn-sh  "swaync-client -t"; }
     Mod+Shift+N hotkey-overlay-title="Limpiar Historial de Notificaciones" { spawn-sh  "swaync-client -C"; }
 
-    Mod+F1 hotkey-overlay-title="Abrir: Asistente de atajos" { show-hotkey-overlay; }
-    Mod+Escape repeat=false { toggle-overview; }
-    Mod+Shift+Escape { quit; }
-    Mod+Q repeat=false { close-window; }
+// ==========
+// multimedia
+// ==========
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh volume-up" ; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh volume-down"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh volume-mute"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh mic-mute"; }
 
-
-    Mod+F       { toggle-window-floating; }
-    Mod+Shift+F { switch-focus-between-floating-and-tiling; }
-
-    Mod+W { toggle-column-tabbed-display; }
-
-
-
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.25 @DEFAULT_AUDIO_SINK@ 5%+" ; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh brightness-down"; }
 
     Print { screenshot-window; }
     Shift+Print { screenshot-screen; }
