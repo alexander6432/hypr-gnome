@@ -34,7 +34,7 @@ function jazz
     rm -f -- "$tmp"
 end
 
-if string match -q "*Hyprland*" "$XDG_SESSION_DESKTOP"; or string match -q "*sway*" "$XDG_SESSION_DESKTOP"
+if string match -q "*Hyprland*" "$XDG_SESSION_DESKTOP"; or string match -q "*niri*" "$XDG_SESSION_DESKTOP"
     set -gx STARSHIP_CONFIG ~/.config/hyprship.toml
 else
     set -gx STARSHIP_CONFIG ~/.config/starship.toml
