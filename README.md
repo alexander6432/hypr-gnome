@@ -8,6 +8,7 @@ NOTA: no tengo un script de instalación automática, pero si tienes conocimient
 puedes instalarlo sin problemas tomando en cuenta siguientes Paquetes.  
 
 #### SUPER + F1
+
 Este comando permite ejecutar un script que permite para buscar los Comandos disponibles.
 *OJO el comando esta sujeto al uso de wezterm, si prefieres otro Terminal es cuestion de
 modificarlo en el archivo ~/.config/hypr/config/keybinding.conf*  
@@ -24,28 +25,24 @@ Es importante tener aun AUR helper como `paru` o `yay` para instalar los paquete
 ciertas funciones de Hyprland y sus complementos dependen de ellos.
 
 ### Paquetes AUR
-`matugen-bin` para dar sorporte de el cambio de colores al el entorno (wofi, hyprland(bordes),  
-hyprlock, waybar, kitty(que a su vez da el color a starship, fastfetch, yazi).  
+
+`matugen-bin` para dar sorporte de el cambio de colores al el entorno ( hyprland(bordes),  
+kitty(que a su vez da el color a starship, fastfetch, yazi).  
+`noctalia-shell` un shell completo para hyprland.  
 
 ### Paquetes de repositorios oficiales
-`blueman` gestor gráfico del bluetooth.  
-`brightnessctl` para controlar el brillo de la pantalla.  
+
 `git` para gestionar repositorios de Git.  
 `hypridle` para gestionar el estado de inactividad de Hyprland.  
 `hyprland` principal gestor de ventanas.  
-`hyprlock` para bloquear la pantalla.  
 `hyprshot` para capturas de pantalla.  
 `hyprsunset` para ajustar la calidez(luz azul) en pantalla.  
 `nwg-look` para cambiar el tema de iconos y cursores en Hyprland de GTK.  
-`pavucontrol` gestor gráfico de control de volumen y dispositivos de audio.  
 `polkit-gnome` para gestionar permisos de usuario en Hyprland.  
-`swaync` asistente de notificaciones para Hyprland.  
-`swww` para gestionar fondos de pantalla en Hyprland con transiciones dinámicas.  
-`waybar` panel de estado y notificaciones para Hyprland.  
-`wofi` lanzador de aplicaciones y selector de wallpapers.  
 `xdg-desktop-portal-hyprland` para integrar aplicaciones GTK con Hyprland.  
 
 #### Otros Comandos útiles
+
 * `SUPER + ENTER` Para abrir la terminal  
 * `SUPER + SHIFT + Z` Para Entrar en el Modo de Grupos(Este modo me permite agrupar ventanas y
 moverlas juntas) y para salir de este con la tecla `Esc`  
@@ -55,12 +52,13 @@ ventanas) y para salir de este con la tecla `Esc`
 Modo*  
 
 #### Solo es para cambiar el valor de swappiness
+
  crear el archivo **/etc/sysctl.d/99-swappiness.conf**  
  con el *contenido vm.swappiness=10*  
  (reitero es opcional y solo si tienes swap y cuidar un poquito mas la SSD)
 
-##### NOTA:
+##### NOTA
+
 Estas notas son tal vez sean de poca ayuda, sobre todo por que es un proyecto personal, mas que
 para compartirlo, pero si te sirve de algo, me alegra mucho, y si tienes alguna duda o sugerencia,
 hazmelo saber.  
-
