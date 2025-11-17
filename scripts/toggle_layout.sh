@@ -31,7 +31,7 @@ EOF
 # Inicialización de archivos
 # ============================
 if [ ! -f "$CONFIG_FILE" ]; then
-  echo "layout = dwindle" >"$CONFIG_FILE"
+  echo "\$layout = dwindle" >"$CONFIG_FILE"
 fi
 
 if [ ! -f "$BINDS_FILE" ]; then

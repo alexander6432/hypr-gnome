@@ -26,7 +26,7 @@ ciertas funciones de Hyprland y sus complementos dependen de ellos.
 
 ### Paquetes AUR
 
-`matugen-bin` para dar sorporte de el cambio de colores al el entorno ( hyprland(bordes),  
+`matugen-bin` para dar sorporte de el cambio de colores al el entorno (hyprland bordes),  
 kitty(que a su vez da el color a starship, fastfetch, yazi).  
 `noctalia-shell` un shell completo para hyprland.  
 
@@ -36,7 +36,7 @@ kitty(que a su vez da el color a starship, fastfetch, yazi).
 `hypridle` para gestionar el estado de inactividad de Hyprland.  
 `hyprland` principal gestor de ventanas.  
 `hyprshot` para capturas de pantalla.  
-`hyprsunset` para ajustar la calidez(luz azul) en pantalla.  
+`wlsunset` para ajustar la calidez(luz azul) en pantalla.  
 `nwg-look` para cambiar el tema de iconos y cursores en Hyprland de GTK.  
 `polkit-gnome` para gestionar permisos de usuario en Hyprland.  
 `xdg-desktop-portal-hyprland` para integrar aplicaciones GTK con Hyprland.  
@@ -44,9 +44,9 @@ kitty(que a su vez da el color a starship, fastfetch, yazi).
 #### Otros Comandos útiles
 
 * `SUPER + ENTER` Para abrir la terminal  
-* `SUPER + SHIFT + Z` Para Entrar en el Modo de Grupos(Este modo me permite agrupar ventanas y
+* `SUPER + G`(Desactivado por inestabilidad con pligins) Para Entrar en el Modo de Grupos(Este modo me permite agrupar ventanas y
 moverlas juntas) y para salir de este con la tecla `Esc`  
-* `SUPER + R` Para entrar en el Modo Ventanas(Este modo me permite mover y redimensionar
+* `SUPER + W` Para entrar en el Modo Ventanas(Este modo me permite mover y redimensionar
 ventanas) y para salir de este con la tecla `Esc`  
 *NOTA: Al entrar al los modos Grupos/Ventanas el resto de comandos no aplican hasta salir de dicho
 Modo*  
