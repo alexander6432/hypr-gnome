@@ -11,21 +11,16 @@ get_color() {
 
 submaps() {
   # Aplicar colores a Hyprland
-  hyprctl keyword general:border_size 2
   hyprctl keyword general:col.active_border "$active_border"
   hyprctl keyword decoration:shadow:enabled false
-  hyprctl keyword decoration:shadow:color "$active_border"
-  hyprctl keyword decoration:shadow:range 8
-  hyprctl keyword decoration:shadow:render_power 8
-  hyprctl keyword decoration:rounding 0
-  hyprctl keyword decoration:inactive_opacity 0.75
-  hyprctl keyword decoration:active_opacity 0.9
   hyprctl keyword decoration:rounding 0
   hyprctl keyword decoration:rounding_power 0
+  hyprctl keyword decoration:active_opacity 0.9
+  hyprctl keyword decoration:inactive_opacity 0.75
 
   hyprctl keyword group:col.border_active "$active_border"
   hyprctl keyword group:col.border_locked_active "$active_border"
-  hyprctl keyword group:groupbar:gradient_rounding 4
+  hyprctl keyword group:groupbar:gradient_rounding 0
 
   # Notificación
   notify-send --app-name Submaps -u normal "$title" "$message"
@@ -33,20 +28,15 @@ submaps() {
 
 restore() {
   # Aplicar colores a Hyprland
-  hyprctl keyword general:border_size 2
   hyprctl keyword general:col.active_border "$active_border $secondary_border 45deg"
-  hyprctl keyword decoration:shadow:enabled true
-  hyprctl keyword decoration:shadow:color "$active_border"
-  hyprctl keyword decoration:shadow:range 8
-  hyprctl keyword decoration:shadow:render_power 8
-  hyprctl keyword decoration:rounding 0
-  hyprctl keyword decoration:inactive_opacity 0.75
-  hyprctl keyword decoration:active_opacity 0.9
-  hyprctl keyword decoration:rounding 0
-  hyprctl keyword decoration:rounding_power 0
+  hyprctl keyword decoration:shadow:enabled false
+  hyprctl keyword decoration:rounding 8
+  hyprctl keyword decoration:rounding_power 4
+  hyprctl keyword decoration:active_opacity 1.0
+  hyprctl keyword decoration:inactive_opacity 0.9
 
-  hyprctl keyword group:col.border_active "$active_border"
-  hyprctl keyword group:col.border_locked_active "$active_border"
+  hyprctl keyword group:col.border_active "$active_border $secondary_border 90deg"
+  hyprctl keyword group:col.border_locked_active "$active_border $secondary_border 90deg"
   hyprctl keyword group:groupbar:gradient_rounding 4
 
   # Notificación
