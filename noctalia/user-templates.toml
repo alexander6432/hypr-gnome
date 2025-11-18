@@ -5,8 +5,3 @@ version_check = false
 input_path = "~/.config/noctalia/colorscheme/colors-hyprland.conf"
 output_path = "~/.cache/dotfiles/colors_hyprland.conf"
 post_hook = "hyprctl reload"
-
-[templates.kitty]
-input_path = "~/.config/noctalia/colorscheme/colors-kitty.conf"
-output_path = "~/.cache/dotfiles/colors-kitty.conf"
-post_hook = "pkill -SIGUSR1 kitty"
