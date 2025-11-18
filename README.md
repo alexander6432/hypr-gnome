@@ -40,6 +40,10 @@ kitty(que a su vez da el color a starship, fastfetch, yazi).
 `nwg-look` para cambiar el tema de iconos y cursores en Hyprland de GTK.  
 `polkit-gnome` para gestionar permisos de usuario en Hyprland.  
 `xdg-desktop-portal-hyprland` para integrar aplicaciones GTK con Hyprland.  
+`adw-gtk-theme` para el tema de GTK con noctalia-shell.
+`qt5ct` para configurar aplicaciones QT en Hyprland con noctalia-shell.
+`qt6ct` para configurar aplicaciones QT en Hyprland con noctalia-shell.
+`hyprland-qt-support` para mejorar la compatibilidad de aplicaciones QT en Hyprland.
 
 #### Otros Comandos útiles
 
