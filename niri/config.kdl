@@ -3,7 +3,6 @@
 /////////////
 
 input {
-
     keyboard {
         xkb {
             layout "es"
@@ -38,15 +37,10 @@ input {
     }
 
     warp-mouse-to-focus mode="center-xy"
-
     focus-follows-mouse
-
     // workspace-auto-back-and-forth
-
     mod-key "Super"
-
     mod-key-nested "Alt"
-
 }
 
   //////////////
@@ -54,22 +48,14 @@ input {
 //////////////
 
 output "eDP-1" {
-
     // off
-
     mode "1366x768@60.003"
-
     scale 1
-
     transform "normal"
-
     position x=0 y=0
-
     focus-at-startup
-
-    background-color "#aaaaaa"
-
-    backdrop-color "#444444"
+    background-color "transparent"
+    backdrop-color "transparent"
 }
 
   //////////////
@@ -77,13 +63,9 @@ output "eDP-1" {
 //////////////
 
 layout {
-
     gaps 8
-
     center-focused-column "never"
-
     // empty-workspace-above-first
-
     default-column-display "normal"
 
     preset-column-widths {
@@ -151,7 +133,7 @@ layout {
         bottom 4
     }
 
-    background-color "#003300"
+    background-color "transparent"
 }
 
   ////////////////////////
@@ -166,12 +148,8 @@ layout {
  /// MISCELLANEOUS ///
 /////////////////////
 
-spawn-at-startup "swaync"
-spawn-sh-at-startup "hyprpaper -c ~/.cache/dotfiles/hyprpaper.conf"
-spawn-sh-at-startup "waybar -c ~/.config/waybar/cubic/config.jsonc -s ~/.config/waybar/cubic/style.css"
-
+spawn-sh-at-startup "qs -c noctalia-shell"
 prefer-no-csd
-
 screenshot-path "~/Imágenes/Capturas de pantalla/Captura_%Y-%m-%d %H-%M-%S.png"
 
 environment {
@@ -190,7 +168,7 @@ cursor {
 }
 
 overview {
-    zoom 0.75
+    zoom 0.5
     backdrop-color "#777777"
     workspace-shadow {
         // off
@@ -216,9 +194,7 @@ hotkey-overlay {
 //////////////////
 
 animations {
-
     // off
-
     slowdown 3.0
 
     workspace-switch {
@@ -268,9 +244,7 @@ animations {
   ////////////////
  /// GESTURES ///
 ////////////////
-
 gestures {
-
     dnd-edge-view-scroll {
         trigger-width 100
         delay-ms 100
@@ -291,10 +265,9 @@ gestures {
   ///////////////////
  /// WINDOW-RULE ///
 ///////////////////
-
 window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+    match app-id="kitty"
+    default-column-width { proportion 0.66; }
 }
 
 window-rule {
@@ -306,7 +279,6 @@ window-rule {
 /-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
     block-out-from "screen-capture"
 }
 
@@ -326,7 +298,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 4 4 4 4
+    geometry-corner-radius 8 8 8 8
     clip-to-geometry true
     draw-border-with-background false
 }
@@ -334,10 +306,18 @@ window-rule {
   //////////////////
  /// LAYER-RULE ///
 //////////////////
-
+// Set the regular wallpaper on the backdrop.
 layer-rule {
-    match namespace="^wofi$"
-    baba-is-float true
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
+
+  //////////////
+ /// BLINDS ///
+//////////////
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
 }
 
   //////////////
@@ -421,9 +401,9 @@ binds {
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
 
-    Mod+E { maximize-column; }
-    Mod+Shift+E { fullscreen-window; }
-    Mod+Ctrl+E { expand-column-to-available-width; }
+    Mod+D { maximize-column; }
+    Mod+Shift+D { fullscreen-window; }
+    Mod+Ctrl+D { expand-column-to-available-width; }
 
 // ========
 // floating
@@ -436,30 +416,39 @@ binds {
 // =============
     Mod+F1           hotkey-overlay-title="Abrir: Asistente de atajos"              { show-hotkey-overlay; }
     Mod+Escape       hotkey-overlay-title="Abrir: Vista General"       repeat=false { toggle-overview; }
-    Mod+Shift+Escape hotkey-overlay-title="Salir de Niri"                           { quit; }
+    Mod+Shift+Escape hotkey-overlay-title="Salir de Niri"                           { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
     Mod+Q            hotkey-overlay-title="Cerrar Ventana"             repeat=false { close-window; }
-
+    Mod+F4           hotkey-overlay-title="Alternar IDLE"              repeat=false { spawn-sh "qs -c noctalia-shell ipc call idleInhibitor toggle"; }
+    Mod+E           hotkey-overlay-title="Cambiar Fondo de Pantalla"   repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper random"; }
+    Mod+Shift+E     hotkey-overlay-title="Abrir Selector de Fondo de Pantalla" repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
 
 // ============
 // applications
 // ============
     Mod+return  hotkey-overlay-title="Abrir: Terminal Kitty"               { spawn "kitty"; }
-    Mod+space   hotkey-overlay-title="Abrir: Lanzador de Aplicaciones"     { spawn "~/.config/scripts/toggle_menu.sh"; }
-    Mod+L       hotkey-overlay-title="Bloquear Pantalla"                   { spawn "hyprlock"; }
+    Mod+space   hotkey-overlay-title="Abrir: Lanzador de Aplicaciones"     { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+B       hotkey-overlay-title="Bloquear Pantalla"                   { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Mod+Z       hotkey-overlay-title="Abrir: Google Chrome"                { spawn "google-chrome-stable"; }
-    Mod+N       hotkey-overlay-title="Abrir: Centro de Notificaciones"     { spawn-sh  "swaync-client -t"; }
-    Mod+Shift+N hotkey-overlay-title="Limpiar Historial de Notificaciones" { spawn-sh  "swaync-client -C"; }
+    Mod+Shift+Z hotkey-overlay-title="Abrir: Firefox"                      { spawn "firefox"; }
+    Mod+N       hotkey-overlay-title="Abrir: Centro de Notificaciones"     { spawn-sh  "qs -c noctalia-shell ipc call notifications toggleHistory"; }
+    Mod+Shift+N hotkey-overlay-title="Limpiar Historial de Notificaciones" { spawn-sh  "qs -c noctalia-shell ipc call notifications clear"; }
 
 // ==========
 // multimedia
 // ==========
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh volume-up" ; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh volume-down"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh volume-mute"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh mic-mute"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase" ; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume decrease"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteOutput"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteInput"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh brightness-up"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh brightness-down"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness increase"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness decrease"; }
+
+    XF86AudioPlay  allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media play"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media pause"; }
+    XF86AudioStop  allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh media-stop"; }
+    XF86AudioPrev  allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
+    XF86AudioNext  allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media next"; }
 
     Print { screenshot-window; }
     Shift+Print { screenshot-screen; }
