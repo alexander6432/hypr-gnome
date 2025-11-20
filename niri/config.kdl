@@ -7,8 +7,9 @@ input {
         xkb {
             layout "es"
         }
-        repeat-delay 600
-        repeat-rate 25
+        repeat-delay 300
+        repeat-rate 40
+        track-layout "global"
     }
 
     touchpad {
@@ -17,15 +18,19 @@ input {
         accel-profile "adaptive"
         tap
         scroll-method "two-finger"
+        // scroll-button-lock
         dwt
+        dwtp
         disabled-on-external-mouse
         drag true
+        scroll-factor horizontal=1.0 vertical=-1.0
     }
 
     mouse {
         // off
         accel-speed 0.0
-        accel-profile "adaptive"
+        accel-profile "flat"
+        scroll-factor horizontal=1.0 vertical=-1.0
     }
 
     trackpoint {
@@ -38,7 +43,7 @@ input {
 
     warp-mouse-to-focus mode="center-xy"
     focus-follows-mouse
-    // workspace-auto-back-and-forth
+    workspace-auto-back-and-forth
     mod-key "Super"
     mod-key-nested "Alt"
 }
@@ -50,7 +55,7 @@ input {
 output "eDP-1" {
     // off
     mode "1366x768@60.003"
-    scale 1
+    scale 1.0
     transform "normal"
     position x=0 y=0
     focus-at-startup
@@ -69,61 +74,61 @@ layout {
     default-column-display "normal"
 
     preset-column-widths {
-        proportion 0.33
-        proportion 0.49
-        proportion 0.66
+        proportion 0.333
+        proportion 0.495
+        proportion 0.666
     }
 
     default-column-width {}
 
     preset-window-heights {
-        proportion 0.33
-        proportion 0.49
-        proportion 0.66
+        proportion 0.333
+        proportion 0.495
+        proportion 0.666
     }
 
     focus-ring {
         off
-        width 4
-        active-gradient from="#80c8ff" to="#c7ff7f" angle=45 relative-to="workspace-view"
-        inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        width 2
+        active-gradient from="#004687" to="#00ffd2" angle=45
+        inactive-gradient from="#888888" to="#444444" angle=45
     }
 
     border {
         // off
         width 2
-        active-gradient from="#e5989b" to="#ffb4a2" angle=45 // relative-to="workspace-view" in="oklch longer hue"
-        inactive-gradient from="#505050" to="#808080" angle=45 // relative-to="workspace-view"
-        urgent-gradient from="#9b0000" to="#ff0000" angle=45
+        active-gradient from="#004687" to="#00ffd2" angle=135 in="oklch shorter hue"
+        inactive-gradient from="#888888" to="#444444" angle=135 in="oklch shorter hue"
+        urgent-gradient from="#930000" to="#ffb4ab" angle=135 in="oklch shorter hue"
     }
 
     shadow {
         on
-        softness 32
-        spread 8
-        offset x=4 y=4
-        draw-behind-window true
+        softness 16
+        spread 0
+        offset x=8 y=8
+        draw-behind-window false
         color "#000000"
     }
 
     tab-indicator {
         // off
         // hide-when-single-tab
-        // place-within-column
+        place-within-column
         gap 4
         width 4
         length total-proportion=0.5
         position "left"
-        gaps-between-tabs 4
-        corner-radius 4
-        active-gradient from="#e5989b" to="#ffb4a2" angle=0
-        inactive-gradient from="#505050" to="#808080" angle=0
-        urgent-gradient from="#9b0000" to="#ff0000" angle=0
+        gaps-between-tabs 16
+        corner-radius 2
+        active-gradient from="#004687" to="#00ffd2" angle=0 in="oklch shorter hue"
+        inactive-gradient from="#888888" to="#444444" angle=0 in="oklch shorter hue"
+        urgent-gradient from="#930000" to="#ffb4ab" angle=0 in="oklch shorter hue"
     }
 
     insert-hint {
         // off
-        gradient from="#ffbb6680" to="#ffc88080" angle=45 relative-to="workspace-view"
+        gradient from="#00468788" to="#00ffd288" angle=45 in="oklch shorter hue"
     }
 
     struts {
@@ -198,46 +203,43 @@ animations {
     slowdown 3.0
 
     workspace-switch {
-        spring damping-ratio=1.0 stiffness=250 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=200 epsilon=0.0001
     }
 
     window-open {
-        duration-ms 300
-        curve "ease-out-expo"
+        spring damping-ratio=1.0 stiffness=400 epsilon=0.0001
     }
 
     window-close {
-        duration-ms 150
-        curve "ease-out-quad"
+       spring damping-ratio=1.0 stiffness=400 epsilon=0.0001
     }
 
     horizontal-view-movement {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
 
     window-movement {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
 
     window-resize {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1600 epsilon=0.0001
     }
 
     config-notification-open-close {
-        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+        spring damping-ratio=0.75 stiffness=400 epsilon=0.001
     }
 
     exit-confirmation-open-close {
-        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+        spring damping-ratio=0.75 stiffness=400 epsilon=0.001
     }
 
     screenshot-ui-open {
-        duration-ms 200
-        curve "ease-out-quad"
+        spring damping-ratio=0.75 stiffness=400 epsilon=0.001
     }
 
     overview-open-close {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        spring damping-ratio=1.0 stiffness=1600 epsilon=0.0001
     }
 }
 
@@ -246,9 +248,9 @@ animations {
 ////////////////
 gestures {
     dnd-edge-view-scroll {
-        trigger-width 100
+        trigger-width 200
         delay-ms 100
-        max-speed 3000
+        max-speed 1000
     }
 
     dnd-edge-workspace-switch {
@@ -256,30 +258,15 @@ gestures {
         delay-ms 100
         max-speed 3000
     }
-
-    hot-corners {
-        // off
-    }
 }
 
   ///////////////////
  /// WINDOW-RULE ///
 ///////////////////
 window-rule {
-    match app-id="kitty"
-    default-column-width { proportion 0.66; }
-}
-
-window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-    default-floating-position x=32 y=32 relative-to="top-right"
-}
-
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-    block-out-from "screen-capture"
+    geometry-corner-radius 8 8 8 8
+    clip-to-geometry true
+    draw-border-with-background false
 }
 
 window-rule {
@@ -288,19 +275,34 @@ window-rule {
 }
 
 window-rule {
+    match is-floating=false
+    tiled-state true
+}
+
+/-window-rule {
     match is-floating=true
     baba-is-float true
 }
 
 window-rule {
-    match is-floating=false
-    tiled-state true
+    match app-id=r#"kitty"#
+    default-column-width { proportion 0.66; }
 }
 
 window-rule {
-    geometry-corner-radius 8 8 8 8
-    clip-to-geometry true
-    draw-border-with-background false
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+    default-floating-position x=16 y=16 relative-to="top-right"
+}
+
+window-rule {
+    match app-id=r#"^org\.telegram\.desktop$"# title="^Visor multimedia$"
+    open-floating true
+    open-fullscreen false
+    default-floating-position x=8 y=8 relative-to="top-right"
+    default-column-width { proportion 0.48; }
+    default-window-height { proportion 0.48; }
+    opacity 1.0
 }
 
   //////////////////
@@ -328,98 +330,101 @@ binds {
 // =========
 // workspace
 // =========
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
+    Mod+1 hotkey-overlay-title="Ir al Espacio de Trabajo 1"{ focus-workspace 1; }
+    Mod+2 hotkey-overlay-title="Ir al Espacio de Trabajo 2"{ focus-workspace 2; }
+    Mod+3 hotkey-overlay-title="Ir al Espacio de Trabajo 3"{ focus-workspace 3; }
+    Mod+4 hotkey-overlay-title="Ir al Espacio de Trabajo 4"{ focus-workspace 4; }
+    Mod+5 hotkey-overlay-title="Ir al Espacio de Trabajo 5"{ focus-workspace 5; }
+    Mod+6 hotkey-overlay-title="Ir al Espacio de Trabajo 6"{ focus-workspace 6; }
+    Mod+7 hotkey-overlay-title="Ir al Espacio de Trabajo 7"{ focus-workspace 7; }
+    Mod+8 hotkey-overlay-title="Ir al Espacio de Trabajo 8"{ focus-workspace 8; }
+    Mod+9 hotkey-overlay-title="Ir al Espacio de Trabajo 9"{ focus-workspace 9; }
 
-    Mod+Shift+1 { move-column-to-workspace 1; }
-    Mod+Shift+2 { move-column-to-workspace 2; }
-    Mod+Shift+3 { move-column-to-workspace 3; }
-    Mod+Shift+4 { move-column-to-workspace 4; }
-    Mod+Shift+5 { move-column-to-workspace 5; }
-    Mod+Shift+6 { move-column-to-workspace 6; }
-    Mod+Shift+7 { move-column-to-workspace 7; }
-    Mod+Shift+8 { move-column-to-workspace 8; }
-    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Shift+1 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 1"{ move-column-to-workspace 1; }
+    Mod+Shift+2 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 2"{ move-column-to-workspace 2; }
+    Mod+Shift+3 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 3"{ move-column-to-workspace 3; }
+    Mod+Shift+4 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 4"{ move-column-to-workspace 4; }
+    Mod+Shift+5 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 5"{ move-column-to-workspace 5; }
+    Mod+Shift+6 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 6"{ move-column-to-workspace 6; }
+    Mod+Shift+7 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 7"{ move-column-to-workspace 7; }
+    Mod+Shift+8 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 8"{ move-column-to-workspace 8; }
+    Mod+Shift+9 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 9"{ move-column-to-workspace 9; }
 
-    Mod+S       { focus-workspace-down; }
-    Mod+A       { focus-workspace-up; }
-    Mod+Shift+S { move-window-to-workspace-down; }
-    Mod+Shift+A { move-window-to-workspace-up; }
+    Mod+S       hotkey-overlay-title="Ir al Espacio de Trabajo Anterior"            { focus-workspace-down; }
+    Mod+A       hotkey-overlay-title="Ir al Espacio de Trabajo Siguiente"           { focus-workspace-up; }
+    Mod+Shift+S hotkey-overlay-title="Mover Ventana al Espacio de Trabajo Anterior" { move-window-to-workspace-down; }
+    Mod+Shift+A hotkey-overlay-title="Mover Ventana al Espacio de Trabajo Siguiente"{ move-window-to-workspace-up; }
 
-// ======
-// window
-// ======
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
+// ============
+// window focus
+// ============
+    Mod+Left  hotkey-overlay-title="Mover Ventana a la Izquierda" { focus-column-left; }
+    Mod+Down  hotkey-overlay-title="Mover Ventana hacia Abajo"    { focus-window-down; }
+    Mod+Up    hotkey-overlay-title="Mover Ventana hacia Arriba"   { focus-window-up; }
+    Mod+Right hotkey-overlay-title="Mover Ventana a la Derecha"   { focus-column-right; }
 
-    Mod+I { focus-column-first; }
-    Mod+O { focus-column-last; }
+    Mod+P hotkey-overlay-title="Enfocar Primmera Ventana" { focus-column-first; }
+    Mod+U hotkey-overlay-title="Enfocar Ultima Ventana"   { focus-column-last; }
 
-    Mod+C       { center-column; }
-    Mod+Shift+C { center-visible-columns; }
+    Mod+C       hotkey-overlay-title="Enfocar Ventana al Centro"           { center-column; }
+    Mod+Shift+C hotkey-overlay-title="Enfocar Ventanas Visibles al Centro" { center-visible-columns; }
 
 // ===========
 // move window
 // ===========
-    Mod+Shift+Left  { move-column-left; }
-    Mod+Shift+Down  { move-window-down; }
-    Mod+Shift+Up    { move-window-up; }
-    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Left  hotkey-overlay-title="Mover Ventana a la Izquierda" { move-column-left; }
+    Mod+Shift+Down  hotkey-overlay-title="Mover Ventana hacia Abajo"    { move-window-down; }
+    Mod+Shift+Up    hotkey-overlay-title="Mover Ventana hacia Arriba"   { move-window-up; }
+    Mod+Shift+Right hotkey-overlay-title="Mover Ventana a la Derecha"   { move-column-right; }
 
-    Mod+Shift+I { move-column-to-first; }
-    Mod+Shift+O { move-column-to-last; }
+    Mod+Shift+P hotkey-overlay-title="Mover Ventana al Principio" { move-column-to-first; }
+    Mod+Shift+U hotkey-overlay-title="Mover Ventana al Final"     { move-column-to-last; }
 
-    Mod+W { toggle-column-tabbed-display; }
-    Mod+Less  { consume-or-expel-window-left; }
-    Mod+Shift+Less { consume-or-expel-window-right; }
-    Mod+Comma  { consume-window-into-column; }
-    Mod+Period { expel-window-from-column; }
+// ==============
+// tabbed windows
+// ==============
+    Mod+T               hotkey-overlay-title="Alternar al Modo Pestañas"                { toggle-column-tabbed-display; }
+    Mod+I               hotkey-overlay-title="Añadir o Expulsar Ventana a la Izquierda" { consume-or-expel-window-left; }
+    Mod+D               hotkey-overlay-title="Añadir o Expulsar Ventana a la Derecha"   { consume-or-expel-window-right; }
+    Mod+Backspace       hotkey-overlay-title="Añadir Ventana"                           { consume-window-into-column; }
+    Mod+Shift+Backspace hotkey-overlay-title="Expulsar Ventana"                         { expel-window-from-column; }
 
-// ======
-// resize
-// ======
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Plus { set-column-width "+10%"; }
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Plus { set-window-height "+10%"; }
+// =============
+// resize window
+// =============
+    Mod+Minus       hotkey-overlay-title="Redimensionar Ventana Disminuir Ancho"  { set-column-width "-10%"; }
+    Mod+Plus        hotkey-overlay-title="Redimensionar Ventana Aumentar Ancho"   { set-column-width "+10%"; }
+    Mod+Shift+Minus hotkey-overlay-title="Redimensionar Ventana Disminuir Altura" { set-window-height "-10%"; }
+    Mod+Shift+Plus  hotkey-overlay-title="Redimensionar Ventana Aumentar Altura"  { set-window-height "+10%"; }
 
-    Mod+TouchpadScrollLeft { set-column-width "-2%"; }
-    Mod+TouchpadScrollRight { set-column-width "+2%"; }
-    Mod+TouchpadScrollDown { set-window-height "-2%"; }
-    Mod+TouchpadScrollUp { set-window-height "+2%"; }
+    Mod+TouchpadScrollLeft  hotkey-overlay-title="Redimensionar Ventana Disminuir Ancho"  { set-column-width "-1%"; }
+    Mod+TouchpadScrollRight hotkey-overlay-title="Redimensionar Ventana Aumentar Ancho"   { set-column-width "+1%"; }
+    Mod+TouchpadScrollDown  hotkey-overlay-title="Redimensionar Ventana Disminuir Altura" { set-window-height "-1%"; }
+    Mod+TouchpadScrollUp    hotkey-overlay-title="Redimensionar Ventana Aumentar Altura"  { set-window-height "+1%"; }
 
-    Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
+    Mod+R       hotkey-overlay-title="Redimensionar Ancho Ventana"  { switch-preset-column-width; }
+    Mod+Shift+R hotkey-overlay-title="Redimensionar Altura Ventana" { switch-preset-window-height; }
+    Mod+Ctrl+R  hotkey-overlay-title="Resetear Altura Ventana"      { reset-window-height; }
 
-    Mod+D { maximize-column; }
-    Mod+Shift+D { fullscreen-window; }
-    Mod+Ctrl+D { expand-column-to-available-width; }
+    Mod+M       hotkey-overlay-title="Maximizar Ventana" { maximize-column; }
+    Mod+Shift+M hotkey-overlay-title="Pantalla Completa" { fullscreen-window; }
+    Mod+Ctrl+M  hotkey-overlay-title="Expandir Ventana"  { expand-column-to-available-width; }
 
 // ========
 // floating
 // ========
-    Mod+F       { toggle-window-floating; }
-    Mod+Shift+F { switch-focus-between-floating-and-tiling; }
+    Mod+F       hotkey-overlay-title="Ventana Flotante"         { toggle-window-floating; }
+    Mod+Shift+F hotkey-overlay-title="Ignorar Ventana Flotante" { switch-focus-between-floating-and-tiling; }
 
 // =============
 // miscellaneous
 // =============
-    Mod+F1           hotkey-overlay-title="Abrir: Asistente de atajos"              { show-hotkey-overlay; }
-    Mod+Escape       hotkey-overlay-title="Abrir: Vista General"       repeat=false { toggle-overview; }
-    Mod+Shift+Escape hotkey-overlay-title="Salir de Niri"                           { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
-    Mod+Q            hotkey-overlay-title="Cerrar Ventana"             repeat=false { close-window; }
-    Mod+F4           hotkey-overlay-title="Alternar IDLE"              repeat=false { spawn-sh "qs -c noctalia-shell ipc call idleInhibitor toggle"; }
-    Mod+E           hotkey-overlay-title="Cambiar Fondo de Pantalla"   repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper random"; }
+    Mod+F1           hotkey-overlay-title="Abrir: Asistente de atajos"                      { show-hotkey-overlay; }
+    Mod+Escape       hotkey-overlay-title="Abrir: Vista General"               repeat=false { toggle-overview; }
+    Mod+Q            hotkey-overlay-title="Cerrar Ventana"                     repeat=false { close-window; }
+    Mod+Shift+Escape hotkey-overlay-title="Salir de Niri"                                   { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+F4           hotkey-overlay-title="Alternar IDLE"                      repeat=false { spawn-sh "qs -c noctalia-shell ipc call idleInhibitor toggle"; }
+    Mod+E           hotkey-overlay-title="Cambiar Fondo de Pantalla"           repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper random"; }
     Mod+Shift+E     hotkey-overlay-title="Abrir Selector de Fondo de Pantalla" repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
 
 // ============
@@ -436,22 +441,22 @@ binds {
 // ==========
 // multimedia
 // ==========
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase" ; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume decrease"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteOutput"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteInput"; }
+    XF86AudioRaiseVolume hotkey-overlay-title="Subir Volumen"       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase" ; }
+    XF86AudioLowerVolume hotkey-overlay-title="Bajar Volumen"       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume decrease"; }
+    XF86AudioMute        hotkey-overlay-title="Silenciar Volumen"   allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteOutput"; }
+    XF86AudioMicMute     hotkey-overlay-title="Silenciar Microfono" allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteInput"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness increase"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness decrease"; }
+    XF86MonBrightnessUp   hotkey-overlay-title="Subir Brillo" allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness increase"; }
+    XF86MonBrightnessDown hotkey-overlay-title="Bajar Brillo" allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness decrease"; }
 
-    XF86AudioPlay  allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media play"; }
-    XF86AudioPause allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media pause"; }
-    XF86AudioStop  allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh media-stop"; }
-    XF86AudioPrev  allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
-    XF86AudioNext  allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media next"; }
+    XF86AudioPlay  hotkey-overlay-title="Reproducir Multimedia" allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media play"; }
+    XF86AudioPause hotkey-overlay-title="Pausar Multimedia"     allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media pause"; }
+    XF86AudioStop  hotkey-overlay-title="Detener Multimedia"    allow-when-locked=true { spawn-sh "~/.config/scripts/multimedia_control.sh media-stop"; }
+    XF86AudioPrev  hotkey-overlay-title="Pista Anterior"        allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
+    XF86AudioNext  hotkey-overlay-title="Pista Siguiente"       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media next"; }
 
-    Print { screenshot-window; }
-    Shift+Print { screenshot-screen; }
-    Ctrl+Print { screenshot; }
+    Print       hotkey-overlay-title="Capturar Ventana"       { screenshot-window; }
+    Shift+Print hotkey-overlay-title="Capturar Pantalla"      { screenshot-screen; }
+    Ctrl+Print  hotkey-overlay-title="Capturar por Seleccion" { screenshot; }
 
 }
