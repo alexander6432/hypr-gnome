@@ -189,7 +189,7 @@ clipboard {
 }
 
 hotkey-overlay {
-    // skip-at-startup
+    skip-at-startup
     // hide-not-bound
     // disable-failed
 }
@@ -223,7 +223,8 @@ animations {
     }
 
     window-resize {
-        spring damping-ratio=1.0 stiffness=1600 epsilon=0.0001
+        duration-ms 200
+        curve "ease-out-cubic"
     }
 
     config-notification-open-close {
@@ -287,6 +288,13 @@ window-rule {
 window-rule {
     match app-id=r#"kitty"#
     default-column-width { proportion 0.66; }
+}
+
+window-rule {
+    match app-id=r#"^niri-keys-search$"#
+    open-floating true
+    default-column-width { proportion 0.50; }
+    default-window-height { proportion 0.40; }
 }
 
 window-rule {
@@ -386,8 +394,8 @@ binds {
     Mod+T               hotkey-overlay-title="Alternar al Modo Pestañas"                { toggle-column-tabbed-display; }
     Mod+I               hotkey-overlay-title="Añadir o Expulsar Ventana a la Izquierda" { consume-or-expel-window-left; }
     Mod+D               hotkey-overlay-title="Añadir o Expulsar Ventana a la Derecha"   { consume-or-expel-window-right; }
-    Mod+Backspace       hotkey-overlay-title="Añadir Ventana"                           { consume-window-into-column; }
-    Mod+Shift+Backspace hotkey-overlay-title="Expulsar Ventana"                         { expel-window-from-column; }
+    Mod+BackSpace       hotkey-overlay-title="Añadir Ventana"                           { consume-window-into-column; }
+    Mod+Shift+BackSpace hotkey-overlay-title="Expulsar Ventana"                         { expel-window-from-column; }
 
 // =============
 // resize window
@@ -419,7 +427,8 @@ binds {
 // =============
 // miscellaneous
 // =============
-    Mod+F1           hotkey-overlay-title="Abrir: Asistente de atajos"                      { show-hotkey-overlay; }
+    Mod+F1           hotkey-overlay-title="Buscar atajos"                      repeat=false { spawn-sh "kitty --class niri-keys-search ~/.config/scripts/atajos_niri.sh"; }
+    Mod+Home         hotkey-overlay-title="Centro de Control"                  repeat=false { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
     Mod+Escape       hotkey-overlay-title="Abrir: Vista General"               repeat=false { toggle-overview; }
     Mod+Q            hotkey-overlay-title="Cerrar Ventana"                     repeat=false { close-window; }
     Mod+Shift+Escape hotkey-overlay-title="Salir de Niri"                                   { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
@@ -430,8 +439,8 @@ binds {
 // ============
 // applications
 // ============
-    Mod+return  hotkey-overlay-title="Abrir: Terminal Kitty"               { spawn "kitty"; }
-    Mod+space   hotkey-overlay-title="Abrir: Lanzador de Aplicaciones"     { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+Return  hotkey-overlay-title="Abrir: Terminal Kitty"               { spawn "kitty"; }
+    Mod+Space   hotkey-overlay-title="Abrir: Lanzador de Aplicaciones"     { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+B       hotkey-overlay-title="Bloquear Pantalla"                   { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Mod+Z       hotkey-overlay-title="Abrir: Google Chrome"                { spawn "google-chrome-stable"; }
     Mod+Shift+Z hotkey-overlay-title="Abrir: Firefox"                      { spawn "firefox"; }

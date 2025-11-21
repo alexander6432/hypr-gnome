@@ -1,6 +1,5 @@
 #!/bin/bash
 # ~/.local/bin/niri-keys-search
-
 grep 'hotkey-overlay-title' ~/.config/niri/config.kdl | \
     sed 's/^\s*//' | \
     sed 's/hotkey-overlay-title=//g' | \
@@ -11,6 +10,36 @@ grep 'hotkey-overlay-title' ~/.config/niri/config.kdl | \
     sed 's/repeat=false//g' | \
     sed 's/{.*//' | \
     sed 's/  \+/ /g' | \
+    sed 's/XF86AudioRaiseVolume/󰕾/g' | \
+    sed 's/XF86AudioLowerVolume/󰖀/g' | \
+    sed 's/XF86AudioMute/󰖁/g' | \
+    sed 's/XF86AudioMicMute/󰍭/g' | \
+    sed 's/XF86MonBrightnessUp/󰃞/g' | \
+    sed 's/XF86MonBrightnessDown/󰃠/g' | \
+    sed 's/XF86AudioPlay/󰐎/g' | \
+    sed 's/XF86AudioPause/󰐎/g' | \
+    sed 's/XF86AudioStop/󰓛/g' | \
+    sed 's/XF86AudioPrev/󰒫/g' | \
+    sed 's/XF86AudioNext/󰒬/g' | \
+    sed 's/Mod//g' | \
+    sed 's/Shift/󰘶/g' | \
+    sed 's/Return/󰌑/g' | \
+    sed 's/Up/󰚷/g' | \
+    sed 's/Left/󰨂/g' | \
+    sed 's/Right/󰨃/g' | \
+    sed 's/Down/󰚶/g' | \
+    sed 's/Up/󰚷/g' | \
+    sed 's/Left/󰨂/g' | \
+    sed 's/Right/󰨃/g' | \
+    sed 's/Print/ImprPant/g' | \
+    sed 's/BackSpace/󰌍/g' | \
+    sed 's/Space/󱁐/g' | \
+    sed 's/Escape/Esc/g' | \
+    sed 's/Minus/-/g' | \
+    sed 's/Plus/+/g' | \
+    sed 's/Home/Inicio/g' | \
+    sed 's/TouchpadScroll/Scroll/g' | \
+    sed 's/+/xxx/g' | \
     awk '{
         # Encuentra donde termina el keybind (primer espacio)
         match($0, /^[^ ]+/)
@@ -19,6 +48,7 @@ grep 'hotkey-overlay-title' ~/.config/niri/config.kdl | \
         gsub(/^[[:space:]]+|[[:space:]]+$/, "", desc)
         printf "%-30s %s\n", keybind, desc
     }' | \
+    sed 's/xxx/ + /g' | \
     fzf --prompt="🔍 Buscar atajo: " \
         --height=70% \
         --border=rounded \
