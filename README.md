@@ -45,6 +45,7 @@ kitty(que a su vez da el color a starship, fastfetch, yazi).
 `qt6ct` para configurar aplicaciones QT en Hyprland con noctalia-shell.
 `hyprland-qt-support` para mejorar la compatibilidad de aplicaciones QT en Hyprland.
 `cava` para gráficos de audio en noctalia-shell.
+`swayidle` para gestionar la inactividad en niri.
 
 #### Otros Comandos útiles
 

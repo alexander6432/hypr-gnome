@@ -154,6 +154,7 @@ layout {
 /////////////////////
 
 spawn-sh-at-startup "qs -c noctalia-shell"
+spawn-sh-at-startup "swayidle"
 prefer-no-csd
 screenshot-path "~/Imágenes/Capturas de pantalla/Captura_%Y-%m-%d %H-%M-%S.png"
 
