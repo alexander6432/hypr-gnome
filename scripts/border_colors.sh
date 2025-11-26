@@ -45,20 +45,20 @@ restore() {
 # Comprobar argumento con case
 case "$1" in
 ventanas)
-  active_border="$(get_color primary_hue120)"
+  active_border="$(get_color secondary_container)"
   title="🪟 Submaps"
   message="Entrando de Submapa de Ventanas"
   submaps
   ;;
 grupos)
-  active_border="$(get_color primary_hue240)"
+  active_border="$(get_color tertiary_container)"
   title="🔀 Submaps"
   message="Entrando de Submapa de Grupos"
   submaps
   ;;
 reset)
-  active_border="$(get_color primary_dark)"
-  secondary_border="$(get_color primary_hue40_dark)"
+  active_border="$(get_color primary)"
+  secondary_border="$(get_color source_color)"
   title="🔀 Submaps"
   message="Saliendo de Submapas"
   restore
