@@ -392,7 +392,7 @@ binds {
 // ==============
 // tabbed windows
 // ==============
-    Mod+T               hotkey-overlay-title="Alternar al Modo Pestañas"                { toggle-column-tabbed-display; }
+    Mod+T               hotkey-overlay-title="Alternar al modo Pestañas"                { toggle-column-tabbed-display; }
     Mod+I               hotkey-overlay-title="Añadir o Expulsar Ventana a la Izquierda" { consume-or-expel-window-left; }
     Mod+D               hotkey-overlay-title="Añadir o Expulsar Ventana a la Derecha"   { consume-or-expel-window-right; }
     Mod+BackSpace       hotkey-overlay-title="Añadir Ventana"                           { consume-window-into-column; }
